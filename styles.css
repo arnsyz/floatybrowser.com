@@ -1,8 +1,9 @@
 :root {
-  --bg: #0f172a;
-  --text: #e2e8f0;
-  --accent: #38bdf8;
-  --card: rgba(255,255,255,0.05);
+  --bg: #121417;
+  --card: #1a1d21;
+  --text: #dfe3ea;
+  --accent: #00b7ff;
+  --accent-fade: rgba(0,183,255,0.12);
   --radius: 14px;
   font-family: "Inter", system-ui, -apple-system, sans-serif;
   color-scheme: dark;
@@ -21,21 +22,16 @@ body {
   align-items: center;
   justify-content: space-between;
   padding: 1rem 2rem;
-  background: rgba(255,255,255,0.03);
-  backdrop-filter: blur(10px);
+  background: rgba(255,255,255,0.04);
+  backdrop-filter: blur(12px);
   position: sticky;
   top: 0;
   z-index: 10;
 }
 .navbar h1 {
-  font-size: 1.4rem;
   color: var(--accent);
-}
-.navbar .logo {
-  width: 34px;
-  height: 34px;
-  margin-right: 0.5rem;
-  border-radius: 8px;
+  font-size: 1.4rem;
+  letter-spacing: 0.5px;
 }
 .navbar nav a {
   margin-left: 1.5rem;
@@ -50,34 +46,37 @@ body {
 /* Hero */
 .hero {
   text-align: center;
-  padding: 5rem 2rem;
-  background: linear-gradient(180deg, rgba(56,189,248,0.15), rgba(15,23,42,1));
+  padding: 6rem 2rem 4rem;
+  background: linear-gradient(180deg, var(--accent-fade) 0%, var(--bg) 100%);
 }
 .hero h2 {
-  font-size: 2rem;
-  color: var(--accent);
+  font-size: 2.4rem;
+  color: var(--text);
+  font-weight: 700;
+  margin-bottom: 0.8rem;
 }
 .hero p {
   font-size: 1.1rem;
-  opacity: 0.9;
+  opacity: 0.85;
+  margin-bottom: 1.5rem;
 }
 .button {
   display: inline-block;
   background: var(--accent);
-  color: var(--bg);
-  padding: 0.7rem 1.4rem;
+  color: #000;
+  padding: 0.75rem 1.5rem;
   border-radius: var(--radius);
   text-decoration: none;
   font-weight: 600;
-  transition: 0.2s;
+  transition: 0.25s ease;
 }
 .button:hover {
-  opacity: 0.85;
+  background: #4dd3ff;
 }
 
 /* Features */
 .features {
-  padding: 3rem 2rem;
+  padding: 3.5rem 2rem;
   text-align: center;
 }
 .features h2 {
@@ -86,14 +85,19 @@ body {
 }
 .feature-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 1rem;
 }
 .feature-card {
   background: var(--card);
   border-radius: var(--radius);
-  padding: 1.2rem;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  padding: 1.4rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  text-align: left;
+}
+.feature-card h3 {
+  margin-top: 0;
+  color: var(--accent);
 }
 
 /* Pricing */
@@ -132,4 +136,5 @@ footer {
   text-align: center;
   opacity: 0.7;
   padding-bottom: 1rem;
+  font-size: 0.9rem;
 }
