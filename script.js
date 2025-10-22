@@ -1,0 +1,1 @@
+console.log("FloatyBrowser site loaded. You’re officially a web dev now.");
