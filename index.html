@@ -17,21 +17,32 @@
     </nav>
   </header>
 
-  <!-- Intro MacBook Scene -->
-  <section class="intro">
-    <div class="macbook">
-      <div class="screen">
-        <div class="screen-content">
-          <h2>FloatyBrowser</h2>
-          <p>The Browser That Floats Above Everything</p>
+  <!-- Cinematic Intro (CSS MacBook) -->
+  <section class="intro" aria-label="Intro">
+    <div class="macbook" aria-hidden="true">
+      <div class="lid">
+        <div class="bezel">
+          <div class="camera"></div>
+          <div class="screen">
+            <div class="screen-content">
+              <h2>FloatyBrowser</h2>
+              <p>The Browser That Floats Above Everything</p>
+            </div>
+          </div>
         </div>
       </div>
+      <div class="hinge"></div>
+      <div class="base">
+        <div class="touchbar"></div>
+        <div class="deck"></div>
+      </div>
+      <div class="shadow"></div>
     </div>
-    <div class="scroll-indicator">▼ Scroll to Explore ▼</div>
+    <div class="scroll-indicator" role="img" aria-label="Scroll to explore">▼ Scroll</div>
   </section>
 
-  <!-- Main Content -->
-  <section class="hero">
+  <!-- Main site content -->
+  <section class="hero reveal">
     <div class="hero-content">
       <h2>The Browser That Floats Above Everything</h2>
       <h2>Compatible With Lockdown Browser</h2>
@@ -40,29 +51,44 @@
     </div>
   </section>
 
-  <section id="features" class="features">
+  <section id="features" class="features reveal">
     <h2>Key Features</h2>
     <div class="feature-grid">
-      <div class="feature-card"><h3>🪶 Lightweight</h3><p>Runs smoothly without draining battery or memory.</p></div>
-      <div class="feature-card"><h3>📸 Built-in Screenshot Tool</h3><p>Capture your screen instantly from within the app.</p></div>
-      <div class="feature-card"><h3>⌨️ Custom Keybinds</h3><p>Create your own shortcuts to manage FloatyBrowser easily.</p></div>
-      <div class="feature-card"><h3>🔒 Privacy-First</h3><p>No trackers, no analytics—just focus.</p></div>
-      <div class="feature-card"><h3>⚡ Built in Swift</h3><p>Optimized for macOS performance and stability.</p></div>
+      <div class="feature-card">
+        <h3>🪶 Lightweight</h3>
+        <p>Runs smoothly without draining battery or memory.</p>
+      </div>
+      <div class="feature-card">
+        <h3>📸 Built-in Screenshot Tool</h3>
+        <p>Capture your screen instantly from within the app—no external tools required.</p>
+      </div>
+      <div class="feature-card">
+        <h3>⌨️ Custom Keybinds</h3>
+        <p>Create your own shortcuts to hide, show, or manage FloatyBrowser exactly how you like.</p>
+      </div>
+      <div class="feature-card">
+        <h3>🔒 Privacy-First</h3>
+        <p>No trackers, no analytics—just a minimal experience focused on you.</p>
+      </div>
+      <div class="feature-card">
+        <h3>⚡ Built in Swift</h3>
+        <p>Optimized for macOS performance and stability using native code.</p>
+      </div>
     </div>
   </section>
 
-  <section id="license" class="pricing">
+  <section id="license" class="pricing reveal">
     <h2>License Information</h2>
     <p class="price">$80 USD — One-Time Premium License</p>
     <p class="note">Includes lifetime updates and Discord support.</p>
     <a href="#contact" class="button">Contact to Purchase</a>
   </section>
 
-  <section id="contact" class="contact">
+  <section id="contact" class="contact reveal">
     <h2>Get in Touch</h2>
     <p>Join our community or reach out directly:</p>
     <ul>
-      <li><strong>Discord Server:</strong> <a href="https://discord.gg/Rpn567xcPs" target="_blank">Join Here</a></li>
+      <li><strong>Discord Server:</strong> <a href="https://discord.gg/Rpn567xcPs" target="_blank" rel="noopener">Join Here</a></li>
       <li><strong>Discord Username:</strong> Arnsyz</li>
     </ul>
   </section>
