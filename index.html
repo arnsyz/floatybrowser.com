@@ -17,104 +17,121 @@
     </nav>
   </header>
 
-  <!-- fixed 3D macbook -->
-  <div class="macbook-layer" aria-hidden="true">
-    <div class="scene-3d">
+  <!-- fixed full-screen 3D macbook -->
+  <div class="macbook-layer" aria-hidden="false">
+    <div class="persp">
       <div id="macbook" class="macbook-3d">
-        <!-- lid / display -->
+        <!-- top / lid -->
         <div class="lid">
-          <div class="inner-lid">
+          <div class="lid-inner">
             <div class="lid-notch">
               <span class="cam"></span>
               <span class="dot"></span>
             </div>
             <div class="display">
               <div id="screen-content" class="screen-content">
-                <!-- JS injects current scene -->
+                <!-- fallback in case JS dies -->
+                <div class="screen-card">
+                  <h2>FloatyBrowser</h2>
+                  <p>The browser that floats above everything. Always on top. Always visible.</p>
+                  <a class="button" href="#scene-6">Get FloatyBrowser</a>
+                </div>
               </div>
             </div>
           </div>
         </div>
         <!-- hinge -->
         <div class="hinge"></div>
-        <!-- base with keyboard -->
+        <!-- base -->
         <div class="base">
-          <div class="keyboard">
-            <!-- fake mac key layout -->
-            <div class="key-row">
-              <span class="key key-sm"></span><span class="key key-sm"></span><span class="key key-sm"></span><span class="key key-sm"></span><span class="key key-sm"></span><span class="key key-sm"></span><span class="key key-sm"></span><span class="key key-sm"></span><span class="key key-sm"></span><span class="key key-sm"></span><span class="key key-sm"></span><span class="key key-sm"></span>
+          <div class="kb-grid">
+            <!-- you wanted keys, here, have keys -->
+            <div class="kb-row">
+              <span class="key sm"></span><span class="key sm"></span><span class="key sm"></span><span class="key sm"></span>
+              <span class="key sm"></span><span class="key sm"></span><span class="key sm"></span><span class="key sm"></span>
+              <span class="key sm"></span><span class="key sm"></span><span class="key sm"></span><span class="key sm"></span>
             </div>
-            <div class="key-row">
-              <span class="key key-md"></span><span class="key"></span><span class="key"></span><span class="key"></span><span class="key"></span><span class="key"></span><span class="key"></span><span class="key"></span><span class="key key-long"></span>
+            <div class="kb-row">
+              <span class="key md"></span><span class="key"></span><span class="key"></span><span class="key"></span><span class="key"></span>
+              <span class="key"></span><span class="key"></span><span class="key long"></span>
             </div>
-            <div class="key-row">
-              <span class="key key-md"></span><span class="key"></span><span class="key"></span><span class="key"></span><span class="key"></span><span class="key"></span><span class="key"></span><span class="key key-longer"></span>
+            <div class="kb-row">
+              <span class="key md"></span><span class="key"></span><span class="key"></span><span class="key"></span><span class="key"></span>
+              <span class="key"></span><span class="key"></span><span class="key long2"></span>
             </div>
-            <div class="key-row">
-              <span class="key key-lg"></span><span class="key"></span><span class="key"></span><span class="key"></span><span class="key key-mid"></span><span class="key key-mid"></span><span class="key key-mid"></span>
+            <div class="kb-row">
+              <span class="key lg"></span><span class="key"></span><span class="key"></span><span class="key"></span>
+              <span class="key mid"></span><span class="key mid"></span><span class="key mid"></span>
             </div>
-            <div class="key-row">
-              <span class="key key-thin"></span><span class="spacebar"></span><span class="key key-thin"></span>
+            <div class="kb-row">
+              <span class="key thin"></span><span class="space"></span><span class="key thin"></span>
             </div>
           </div>
           <div class="trackpad"></div>
         </div>
-        <!-- drop shadow -->
         <div class="mac-shadow"></div>
       </div>
     </div>
   </div>
 
-  <!-- scroll track that drives the 3D laptop -->
+  <!-- scroll scenes (invisible-ish, just to drive the animation) -->
   <main class="scroll-track">
-    <section id="scene-0" class="step" data-scene="0"
+    <section id="scene-0" class="scene-step" data-scene="0"
       data-title="FloatyBrowser"
-      data-text="The browser that floats above everything. Stays on top. Stays open."
+      data-text="The browser that floats above everything. Stays visible even when other apps are locked."
       data-cta="Get FloatyBrowser"
       data-ctalink="#scene-6">
+      <div class="step-label">01 • Intro</div>
     </section>
 
-    <section id="scene-1" class="step" data-scene="1"
+    <section id="scene-1" class="scene-step" data-scene="1"
       data-title="Works with Lockdown Browser"
-      data-text="Launch FloatyBrowser and keep it visible while your main window is locked. No re-positioning.">
+      data-text="Use FloatyBrowser side-by-side with Lockdown without losing it behind the main window.">
+      <div class="step-label">02 • Lockdown Compatible</div>
     </section>
 
-    <section id="scene-2" class="step" data-scene="2"
+    <section id="scene-2" class="scene-step" data-scene="2"
       data-title="Built-in Screenshot Tool"
-      data-text="Screenshot instantly from inside FloatyBrowser. No third-party tools. No lag.">
+      data-text="Capture your screen instantly from inside the app. No 3rd-party apps. No desktop mess.">
+      <div class="step-label">03 • Screenshot</div>
     </section>
 
-    <section id="scene-3" class="step" data-scene="3"
+    <section id="scene-3" class="scene-step" data-scene="3"
       data-title="Custom Keybinds"
-      data-text="Hide, show, toggle, move. All on your own keybinds. Real control.">
+      data-text="Hide, show, toggle, move. All on your own keybinds. You don’t have to use what we picked.">
+      <div class="step-label">04 • Keybinds</div>
     </section>
 
-    <section id="scene-4" class="step" data-scene="4"
+    <section id="scene-4" class="scene-step" data-scene="4"
       data-title="Privacy-First"
-      data-text="No trackers. No analytics. Just your window and your workflow.">
+      data-text="No trackers. No analytics. No silent calls. It just opens a floating browser and stays there.">
+      <div class="step-label">05 • Privacy</div>
     </section>
 
-    <section id="scene-5" class="step" data-scene="5"
+    <section id="scene-5" class="scene-step" data-scene="5"
       data-title="Built in Swift"
-      data-text="Native macOS build. Fast, stable, power-efficient.">
+      data-text="Native macOS performance. Fast startup, low memory, looks like a real Mac app because it is.">
+      <div class="step-label">06 • Swift</div>
     </section>
 
-    <section id="scene-6" class="step" data-scene="6"
+    <section id="scene-6" class="scene-step" data-scene="6"
       data-title="$80 — One-Time License"
-      data-text="Lifetime updates. Discord support. You pay once."
+      data-text="Pay once. Keep it. Lifetime updates. Discord help."
       data-cta="Contact to Buy"
       data-ctalink="#scene-7">
+      <div class="step-label">07 • License</div>
     </section>
 
-    <section id="scene-7" class="step" data-scene="7"
+    <section id="scene-7" class="scene-step" data-scene="7"
       data-title="Discord Support"
-      data-text="Server: Join Here • User: Arnsyz"
+      data-text="Server: Join Here • Username: Arnsyz"
       data-cta="Join Discord"
       data-ctalink="https://discord.gg/Rpn567xcPs">
+      <div class="step-label">08 • Discord</div>
     </section>
 
-    <!-- extra bottom content so it doesn't snap hard at the end -->
-    <section class="end-pad"></section>
+    <!-- little tail so scroll doesn't slam the end -->
+    <section class="scene-step end-spacer" aria-hidden="true"></section>
   </main>
 
   <footer class="footer">
