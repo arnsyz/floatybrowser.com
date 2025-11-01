@@ -11,193 +11,113 @@
   <header class="navbar">
     <h1>FloatyBrowser</h1>
     <nav>
-      <a href="#scrolly">Overview</a>
-      <a href="#license">License</a>
-      <a href="#contact">Contact</a>
+      <a href="#scene-0">Overview</a>
+      <a href="#scene-6">License</a>
+      <a href="#scene-7">Contact</a>
     </nav>
   </header>
 
-  <!-- scroll-driven product page -->
-  <main id="scrolly" class="scrolly">
-    <!-- pinned macbook air -->
-    <div class="stage">
-      <div id="macbook" class="macbook-air" aria-hidden="true">
-        <!-- lid / screen -->
-        <div class="top-shell">
-          <div class="screen-frame">
-            <div class="notch">
+  <!-- fixed 3D macbook -->
+  <div class="macbook-layer" aria-hidden="true">
+    <div class="scene-3d">
+      <div id="macbook" class="macbook-3d">
+        <!-- lid / display -->
+        <div class="lid">
+          <div class="inner-lid">
+            <div class="lid-notch">
               <span class="cam"></span>
               <span class="dot"></span>
             </div>
-            <div class="screen">
+            <div class="display">
               <div id="screen-content" class="screen-content">
-                <!-- JS injects first scene -->
+                <!-- JS injects current scene -->
               </div>
             </div>
           </div>
         </div>
         <!-- hinge -->
         <div class="hinge"></div>
-        <!-- bottom with keyboard -->
-        <div class="bottom-shell">
+        <!-- base with keyboard -->
+        <div class="base">
           <div class="keyboard">
-            <!-- row 1 -->
-            <div class="key key-sm"></div>
-            <div class="key key-sm"></div>
-            <div class="key key-sm"></div>
-            <div class="key key-sm"></div>
-            <div class="key key-sm"></div>
-            <div class="key key-sm"></div>
-            <div class="key key-sm"></div>
-            <div class="key key-sm"></div>
-            <div class="key key-sm"></div>
-            <div class="key key-sm"></div>
-            <div class="key key-sm"></div>
-            <div class="key key-sm"></div>
-
-            <!-- row 2 -->
-            <div class="key key-md"></div>
-            <div class="key"></div>
-            <div class="key"></div>
-            <div class="key"></div>
-            <div class="key"></div>
-            <div class="key"></div>
-            <div class="key"></div>
-            <div class="key"></div>
-            <div class="key key-long"></div>
-
-            <!-- row 3 -->
-            <div class="key key-md"></div>
-            <div class="key"></div>
-            <div class="key"></div>
-            <div class="key"></div>
-            <div class="key"></div>
-            <div class="key"></div>
-            <div class="key"></div>
-            <div class="key key-longer"></div>
-
-            <!-- row 4 -->
-            <div class="key key-lg"></div>
-            <div class="key"></div>
-            <div class="key"></div>
-            <div class="key"></div>
-            <div class="key key-mid"></div>
-            <div class="key key-mid"></div>
-            <div class="key key-mid"></div>
-
-            <!-- row 5 (space) -->
-            <div class="key key-thin"></div>
-            <div class="spacebar"></div>
-            <div class="key key-thin"></div>
+            <!-- fake mac key layout -->
+            <div class="key-row">
+              <span class="key key-sm"></span><span class="key key-sm"></span><span class="key key-sm"></span><span class="key key-sm"></span><span class="key key-sm"></span><span class="key key-sm"></span><span class="key key-sm"></span><span class="key key-sm"></span><span class="key key-sm"></span><span class="key key-sm"></span><span class="key key-sm"></span><span class="key key-sm"></span>
+            </div>
+            <div class="key-row">
+              <span class="key key-md"></span><span class="key"></span><span class="key"></span><span class="key"></span><span class="key"></span><span class="key"></span><span class="key"></span><span class="key"></span><span class="key key-long"></span>
+            </div>
+            <div class="key-row">
+              <span class="key key-md"></span><span class="key"></span><span class="key"></span><span class="key"></span><span class="key"></span><span class="key"></span><span class="key"></span><span class="key key-longer"></span>
+            </div>
+            <div class="key-row">
+              <span class="key key-lg"></span><span class="key"></span><span class="key"></span><span class="key"></span><span class="key key-mid"></span><span class="key key-mid"></span><span class="key key-mid"></span>
+            </div>
+            <div class="key-row">
+              <span class="key key-thin"></span><span class="spacebar"></span><span class="key key-thin"></span>
+            </div>
           </div>
           <div class="trackpad"></div>
         </div>
-        <div class="shadow"></div>
+        <!-- drop shadow -->
+        <div class="mac-shadow"></div>
       </div>
     </div>
+  </div>
 
-    <!-- right side: scenes -->
-    <article class="steps">
-      <!-- 0 -->
-      <section
-        class="step"
-        data-scene="0"
-        data-title="FloatyBrowser"
-        data-text="The browser that floats above everything. Always on top. Always visible."
-        data-cta="Get FloatyBrowser"
-        data-ctalink="#license"
-      ></section>
+  <!-- scroll track that drives the 3D laptop -->
+  <main class="scroll-track">
+    <section id="scene-0" class="step" data-scene="0"
+      data-title="FloatyBrowser"
+      data-text="The browser that floats above everything. Stays on top. Stays open."
+      data-cta="Get FloatyBrowser"
+      data-ctalink="#scene-6">
+    </section>
 
-      <!-- 1 -->
-      <section
-        class="step"
-        data-scene="1"
-        data-title="Works with Lockdown Browser"
-        data-text="Made to stay present while your main window is locked. No extra hacks."
-      ></section>
+    <section id="scene-1" class="step" data-scene="1"
+      data-title="Works with Lockdown Browser"
+      data-text="Launch FloatyBrowser and keep it visible while your main window is locked. No re-positioning.">
+    </section>
 
-      <!-- 2 -->
-      <section
-        class="step"
-        data-scene="2"
-        data-title="Built-in Screenshot Tool"
-        data-text="Screenshot your screen straight from the app. Fast, quiet, clean."
-      ></section>
+    <section id="scene-2" class="step" data-scene="2"
+      data-title="Built-in Screenshot Tool"
+      data-text="Screenshot instantly from inside FloatyBrowser. No third-party tools. No lag.">
+    </section>
 
-      <!-- 3 -->
-      <section
-        class="step"
-        data-scene="3"
-        data-title="Custom Keybinds"
-        data-text="Hide, show, toggle, position, all on the keys you choose."
-      ></section>
+    <section id="scene-3" class="step" data-scene="3"
+      data-title="Custom Keybinds"
+      data-text="Hide, show, toggle, move. All on your own keybinds. Real control.">
+    </section>
 
-      <!-- 4 -->
-      <section
-        class="step"
-        data-scene="4"
-        data-title="Privacy-First"
-        data-text="No trackers. No random analytics. Just your window and your work."
-      ></section>
+    <section id="scene-4" class="step" data-scene="4"
+      data-title="Privacy-First"
+      data-text="No trackers. No analytics. Just your window and your workflow.">
+    </section>
 
-      <!-- 5 -->
-      <section
-        class="step"
-        data-scene="5"
-        data-title="Built in Swift"
-        data-text="Native macOS performance. No lag. No weird ports."
-      ></section>
+    <section id="scene-5" class="step" data-scene="5"
+      data-title="Built in Swift"
+      data-text="Native macOS build. Fast, stable, power-efficient.">
+    </section>
 
-      <!-- 6 -->
-      <section
-        class="step"
-        data-scene="6"
-        data-title="$80 — One-Time License"
-        data-text="Lifetime updates. Discord support. No subscription."
-        data-cta="Contact to Buy"
-        data-ctalink="#contact"
-      ></section>
+    <section id="scene-6" class="step" data-scene="6"
+      data-title="$80 — One-Time License"
+      data-text="Lifetime updates. Discord support. You pay once."
+      data-cta="Contact to Buy"
+      data-ctalink="#scene-7">
+    </section>
 
-      <!-- 7 -->
-      <section
-        class="step"
-        data-scene="7"
-        data-title="Discord Support"
-        data-text="Server: Join Here • User: Arnsyz"
-        data-cta="Join Discord"
-        data-ctalink="https://discord.gg/Rpn567xcPs"
-      ></section>
-    </article>
+    <section id="scene-7" class="step" data-scene="7"
+      data-title="Discord Support"
+      data-text="Server: Join Here • User: Arnsyz"
+      data-cta="Join Discord"
+      data-ctalink="https://discord.gg/Rpn567xcPs">
+    </section>
+
+    <!-- extra bottom content so it doesn't snap hard at the end -->
+    <section class="end-pad"></section>
   </main>
 
-  <!-- normal layout below (in case someone scrolls more) -->
-  <section id="features" class="features reveal">
-    <h2>Key Features</h2>
-    <div class="feature-grid">
-      <div class="feature-card"><h3>🪶 Lightweight</h3><p>Runs smoothly without draining battery.</p></div>
-      <div class="feature-card"><h3>📸 Screenshot Tool</h3><p>Capture instantly from within the app.</p></div>
-      <div class="feature-card"><h3>⌨️ Custom Keybinds</h3><p>Control everything with hotkeys.</p></div>
-      <div class="feature-card"><h3>🔒 Privacy</h3><p>No tracking. No analytics. Minimal.</p></div>
-      <div class="feature-card"><h3>⚡ Swift</h3><p>Built natively for macOS.</p></div>
-    </div>
-  </section>
-
-  <section id="license" class="pricing reveal">
-    <h2>License Information</h2>
-    <p class="price">$80 USD — One-Time Premium License</p>
-    <p class="note">Includes lifetime updates and Discord support.</p>
-    <a href="#contact" class="button">Contact to Purchase</a>
-  </section>
-
-  <section id="contact" class="contact reveal">
-    <h2>Get in Touch</h2>
-    <ul>
-      <li><strong>Discord Server:</strong> <a href="https://discord.gg/Rpn567xcPs" target="_blank" rel="noopener">Join Here</a></li>
-      <li><strong>Discord Username:</strong> Arnsyz</li>
-    </ul>
-  </section>
-
-  <footer>
+  <footer class="footer">
     <small>© 2025 FloatyBrowser. All rights reserved.</small>
   </footer>
 
