@@ -17,95 +17,148 @@
     </nav>
   </header>
 
-  <!-- SCROLL-DRIVEN PRODUCT REVEAL -->
+  <!-- scroll-driven product page -->
   <main id="scrolly" class="scrolly">
-    <!-- pinned macbook -->
+    <!-- pinned macbook air -->
     <div class="stage">
-      <div class="macbook" id="macbook" aria-hidden="true">
-        <div class="lid">
-          <div class="bezel">
+      <div id="macbook" class="macbook-air" aria-hidden="true">
+        <!-- lid / screen -->
+        <div class="top-shell">
+          <div class="screen-frame">
             <div class="notch">
               <span class="cam"></span>
-              <span class="sensor"></span>
+              <span class="dot"></span>
             </div>
             <div class="screen">
               <div id="screen-content" class="screen-content">
-                <!-- JS injects here -->
+                <!-- JS injects first scene -->
               </div>
             </div>
           </div>
         </div>
+        <!-- hinge -->
         <div class="hinge"></div>
-        <div class="base">
-          <div class="deck"></div>
-          <div class="shadow"></div>
+        <!-- bottom with keyboard -->
+        <div class="bottom-shell">
+          <div class="keyboard">
+            <!-- row 1 -->
+            <div class="key key-sm"></div>
+            <div class="key key-sm"></div>
+            <div class="key key-sm"></div>
+            <div class="key key-sm"></div>
+            <div class="key key-sm"></div>
+            <div class="key key-sm"></div>
+            <div class="key key-sm"></div>
+            <div class="key key-sm"></div>
+            <div class="key key-sm"></div>
+            <div class="key key-sm"></div>
+            <div class="key key-sm"></div>
+            <div class="key key-sm"></div>
+
+            <!-- row 2 -->
+            <div class="key key-md"></div>
+            <div class="key"></div>
+            <div class="key"></div>
+            <div class="key"></div>
+            <div class="key"></div>
+            <div class="key"></div>
+            <div class="key"></div>
+            <div class="key"></div>
+            <div class="key key-long"></div>
+
+            <!-- row 3 -->
+            <div class="key key-md"></div>
+            <div class="key"></div>
+            <div class="key"></div>
+            <div class="key"></div>
+            <div class="key"></div>
+            <div class="key"></div>
+            <div class="key"></div>
+            <div class="key key-longer"></div>
+
+            <!-- row 4 -->
+            <div class="key key-lg"></div>
+            <div class="key"></div>
+            <div class="key"></div>
+            <div class="key"></div>
+            <div class="key key-mid"></div>
+            <div class="key key-mid"></div>
+            <div class="key key-mid"></div>
+
+            <!-- row 5 (space) -->
+            <div class="key key-thin"></div>
+            <div class="spacebar"></div>
+            <div class="key key-thin"></div>
+          </div>
+          <div class="trackpad"></div>
         </div>
+        <div class="shadow"></div>
       </div>
     </div>
 
-    <!-- scroll scenes (each one = one “shot”) -->
+    <!-- right side: scenes -->
     <article class="steps">
-      <!-- scene 0: hero -->
+      <!-- 0 -->
       <section
         class="step"
         data-scene="0"
         data-title="FloatyBrowser"
-        data-text="The Browser That Floats Above Everything."
+        data-text="The browser that floats above everything. Always on top. Always visible."
         data-cta="Get FloatyBrowser"
         data-ctalink="#license"
       ></section>
 
-      <!-- scene 1: lockdown -->
+      <!-- 1 -->
       <section
         class="step"
         data-scene="1"
         data-title="Works with Lockdown Browser"
-        data-text="Designed to stay on top. No switching. No dragging. Just open and work."
+        data-text="Made to stay present while your main window is locked. No extra hacks."
       ></section>
 
-      <!-- scene 2: screenshot -->
+      <!-- 2 -->
       <section
         class="step"
         data-scene="2"
         data-title="Built-in Screenshot Tool"
-        data-text="Capture, copy, send. No third-party apps. No 20 menu clicks."
+        data-text="Screenshot your screen straight from the app. Fast, quiet, clean."
       ></section>
 
-      <!-- scene 3: keybinds -->
+      <!-- 3 -->
       <section
         class="step"
         data-scene="3"
         data-title="Custom Keybinds"
-        data-text="Map hide/show and controls to whatever keys you actually use."
+        data-text="Hide, show, toggle, position, all on the keys you choose."
       ></section>
 
-      <!-- scene 4: privacy -->
+      <!-- 4 -->
       <section
         class="step"
         data-scene="4"
         data-title="Privacy-First"
-        data-text="No trackers. No analytics. No random calls home."
+        data-text="No trackers. No random analytics. Just your window and your work."
       ></section>
 
-      <!-- scene 5: swift -->
+      <!-- 5 -->
       <section
         class="step"
         data-scene="5"
         data-title="Built in Swift"
-        data-text="Made for macOS. Fast, stable, native."
+        data-text="Native macOS performance. No lag. No weird ports."
       ></section>
 
-      <!-- scene 6: price -->
+      <!-- 6 -->
       <section
         class="step"
         data-scene="6"
-        data-title="$80 One-Time"
-        data-text="Lifetime updates and Discord support included."
+        data-title="$80 — One-Time License"
+        data-text="Lifetime updates. Discord support. No subscription."
         data-cta="Contact to Buy"
         data-ctalink="#contact"
       ></section>
 
-      <!-- scene 7: discord -->
+      <!-- 7 -->
       <section
         class="step"
         data-scene="7"
@@ -117,15 +170,15 @@
     </article>
   </main>
 
-  <!-- fallback/normal sections (below reveal) -->
+  <!-- normal layout below (in case someone scrolls more) -->
   <section id="features" class="features reveal">
     <h2>Key Features</h2>
     <div class="feature-grid">
-      <div class="feature-card"><h3>🪶 Lightweight</h3><p>Runs smoothly without draining battery or memory.</p></div>
-      <div class="feature-card"><h3>📸 Built-in Screenshot Tool</h3><p>Capture your screen instantly from within the app.</p></div>
-      <div class="feature-card"><h3>⌨️ Custom Keybinds</h3><p>Hide, show, manage FloatyBrowser exactly how you like.</p></div>
-      <div class="feature-card"><h3>🔒 Privacy-First</h3><p>No trackers, no analytics—just focus.</p></div>
-      <div class="feature-card"><h3>⚡ Built in Swift</h3><p>Optimized for macOS performance and stability.</p></div>
+      <div class="feature-card"><h3>🪶 Lightweight</h3><p>Runs smoothly without draining battery.</p></div>
+      <div class="feature-card"><h3>📸 Screenshot Tool</h3><p>Capture instantly from within the app.</p></div>
+      <div class="feature-card"><h3>⌨️ Custom Keybinds</h3><p>Control everything with hotkeys.</p></div>
+      <div class="feature-card"><h3>🔒 Privacy</h3><p>No tracking. No analytics. Minimal.</p></div>
+      <div class="feature-card"><h3>⚡ Swift</h3><p>Built natively for macOS.</p></div>
     </div>
   </section>
 
