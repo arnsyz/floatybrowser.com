@@ -1,140 +1,169 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>FloatyBrowser — Premium macOS Utility</title>
-  <link rel="icon" type="image/png" href="favicon.png" />
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 </head>
 <body>
   <header class="navbar">
     <h1>FloatyBrowser</h1>
     <nav>
-      <a href="#scene-0">Overview</a>
-      <a href="#scene-6">License</a>
-      <a href="#scene-7">Contact</a>
+      <a href="#features">Features</a>
+      <a href="#license">License</a>
+      <a href="#contact">Contact</a>
     </nav>
   </header>
 
-  <!-- fixed full-screen 3D macbook -->
-  <div class="macbook-layer" aria-hidden="false">
-    <div class="persp">
-      <div id="macbook" class="macbook-3d">
-        <!-- top / lid -->
-        <div class="lid">
-          <div class="lid-inner">
-            <div class="lid-notch">
-              <span class="cam"></span>
-              <span class="dot"></span>
+  <section class="hero">
+    <div class="hero-content">
+      <h2>The Browser That Floats Above Everything</h2>
+      <h2>Compatible With Lockdown Browser</h2>
+      <p>Lightweight. Private. Always on top.<br>Built natively for macOS in Swift.</p>
+      <a href="#license" class="button">Get FloatyBrowser</a>
+    </div>
+  </section>
+
+  <section id="features" class="features">
+    <h2>Key Features</h2>
+    <div class="demo-container">
+      <div class="feature-descriptions">
+        <div class="feature-section" data-feature="1">
+          <h3>🪶 Lightweight</h3>
+          <p>Runs smoothly without draining battery or memory. Experience seamless performance optimized for your Mac, ensuring you can multitask without any lag or resource hogging.</p>
+        </div>
+        <div class="feature-section" data-feature="2">
+          <h3>📸 Built-in Screenshot Tool</h3>
+          <p>Capture your screen instantly from within the app—no external tools required. With one click, grab high-quality screenshots and annotate them directly in FloatyBrowser.</p>
+        </div>
+        <div class="feature-section" data-feature="3">
+          <h3>⌨️ Custom Keybinds</h3>
+          <p>Create your own shortcuts to hide, show, or manage FloatyBrowser exactly how you like. Tailor the app to your workflow for ultimate efficiency and control.</p>
+        </div>
+        <div class="feature-section" data-feature="4">
+          <h3>🔒 Privacy-First</h3>
+          <p>No trackers, no analytics—just a minimal experience focused on you. Your data stays private, with end-to-end encryption and zero third-party involvement.</p>
+        </div>
+        <div class="feature-section" data-feature="5">
+          <h3>⚡ Built in Swift</h3>
+          <p>Optimized for macOS performance and stability using native code. Enjoy blazing-fast load times and rock-solid reliability built right into the core of macOS.</p>
+        </div>
+      </div>
+      <div class="macbook-sticky">
+        <div class="macbook">
+          <div class="macbook-screen">
+            <div class="screen screen1 active">
+              <div class="browser-window">
+                <div class="title-bar">
+                  <div class="buttons">
+                    <span class="close"></span>
+                    <span class="minimize"></span>
+                    <span class="maximize"></span>
+                  </div>
+                  <div class="title">FloatyBrowser - Lightweight Mode</div>
+                </div>
+                <div class="content">
+                  <h3>🪶 Lightweight</h3>
+                  <p>Runs smoothly without draining battery or memory. Experience seamless performance optimized for your Mac.</p>
+                  <div class="demo-visual">Minimal resource usage: CPU 2%, Memory 50MB</div>
+                </div>
+              </div>
             </div>
-            <div class="display">
-              <div id="screen-content" class="screen-content">
-                <!-- fallback in case JS dies -->
-                <div class="screen-card">
-                  <h2>FloatyBrowser</h2>
-                  <p>The browser that floats above everything. Always on top. Always visible.</p>
-                  <a class="button" href="#scene-6">Get FloatyBrowser</a>
+            <div class="screen screen2">
+              <div class="browser-window">
+                <div class="title-bar">
+                  <div class="buttons">
+                    <span class="close"></span>
+                    <span class="minimize"></span>
+                    <span class="maximize"></span>
+                  </div>
+                  <div class="title">FloatyBrowser - Screenshot Tool</div>
+                </div>
+                <div class="content">
+                  <h3>📸 Built-in Screenshot Tool</h3>
+                  <p>Capture your screen instantly—no external tools required.</p>
+                  <div class="demo-visual">Screenshot captured! Edit and save directly.</div>
+                </div>
+              </div>
+            </div>
+            <div class="screen screen3">
+              <div class="browser-window">
+                <div class="title-bar">
+                  <div class="buttons">
+                    <span class="close"></span>
+                    <span class="minimize"></span>
+                    <span class="maximize"></span>
+                  </div>
+                  <div class="title">FloatyBrowser - Custom Keybinds</div>
+                </div>
+                <div class="content">
+                  <h3>⌨️ Custom Keybinds</h3>
+                  <p>Create your own shortcuts to manage FloatyBrowser.</p>
+                  <div class="demo-visual">Shortcut: Cmd + H - Hide Browser</div>
+                </div>
+              </div>
+            </div>
+            <div class="screen screen4">
+              <div class="browser-window">
+                <div class="title-bar">
+                  <div class="buttons">
+                    <span class="close"></span>
+                    <span class="minimize"></span>
+                    <span class="maximize"></span>
+                  </div>
+                  <div class="title">FloatyBrowser - Privacy-First</div>
+                </div>
+                <div class="content">
+                  <h3>🔒 Privacy-First</h3>
+                  <p>No trackers, no analytics—just focused on you.</p>
+                  <div class="demo-visual">Privacy Shield Active: 100% Data Secure</div>
+                </div>
+              </div>
+            </div>
+            <div class="screen screen5">
+              <div class="browser-window">
+                <div class="title-bar">
+                  <div class="buttons">
+                    <span class="close"></span>
+                    <span class="minimize"></span>
+                    <span class="maximize"></span>
+                  </div>
+                  <div class="title">FloatyBrowser - Built in Swift</div>
+                </div>
+                <div class="content">
+                  <h3>⚡ Built in Swift</h3>
+                  <p>Optimized for macOS performance and stability.</p>
+                  <div class="demo-visual">Native Swift Code: Ultra-Fast Execution</div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <!-- hinge -->
-        <div class="hinge"></div>
-        <!-- base -->
-        <div class="base">
-          <div class="kb-grid">
-            <!-- you wanted keys, here, have keys -->
-            <div class="kb-row">
-              <span class="key sm"></span><span class="key sm"></span><span class="key sm"></span><span class="key sm"></span>
-              <span class="key sm"></span><span class="key sm"></span><span class="key sm"></span><span class="key sm"></span>
-              <span class="key sm"></span><span class="key sm"></span><span class="key sm"></span><span class="key sm"></span>
-            </div>
-            <div class="kb-row">
-              <span class="key md"></span><span class="key"></span><span class="key"></span><span class="key"></span><span class="key"></span>
-              <span class="key"></span><span class="key"></span><span class="key long"></span>
-            </div>
-            <div class="kb-row">
-              <span class="key md"></span><span class="key"></span><span class="key"></span><span class="key"></span><span class="key"></span>
-              <span class="key"></span><span class="key"></span><span class="key long2"></span>
-            </div>
-            <div class="kb-row">
-              <span class="key lg"></span><span class="key"></span><span class="key"></span><span class="key"></span>
-              <span class="key mid"></span><span class="key mid"></span><span class="key mid"></span>
-            </div>
-            <div class="kb-row">
-              <span class="key thin"></span><span class="space"></span><span class="key thin"></span>
-            </div>
-          </div>
-          <div class="trackpad"></div>
-        </div>
-        <div class="mac-shadow"></div>
       </div>
     </div>
-  </div>
+  </section>
 
-  <!-- scroll scenes (invisible-ish, just to drive the animation) -->
-  <main class="scroll-track">
-    <section id="scene-0" class="scene-step" data-scene="0"
-      data-title="FloatyBrowser"
-      data-text="The browser that floats above everything. Stays visible even when other apps are locked."
-      data-cta="Get FloatyBrowser"
-      data-ctalink="#scene-6">
-      <div class="step-label">01 • Intro</div>
-    </section>
+  <section id="license" class="pricing">
+    <h2>License Information</h2>
+    <p class="price">$80 USD — One-Time Premium License</p>
+    <p class="note">Includes lifetime updates and Discord support.</p>
+    <a href="#contact" class="button">Contact to Purchase</a>
+  </section>
 
-    <section id="scene-1" class="scene-step" data-scene="1"
-      data-title="Works with Lockdown Browser"
-      data-text="Use FloatyBrowser side-by-side with Lockdown without losing it behind the main window.">
-      <div class="step-label">02 • Lockdown Compatible</div>
-    </section>
+  <section id="contact" class="contact">
+    <h2>Get in Touch</h2>
+    <p>Join our community or reach out directly:</p>
+    <ul>
+      <li><strong>Discord Server:</strong> <a href="https://discord.gg/Rpn567xcPs" target="_blank">Join Here</a></li>
+      <li><strong>Discord Username:</strong> Arnsyz</li>
+    </ul>
+  </section>
 
-    <section id="scene-2" class="scene-step" data-scene="2"
-      data-title="Built-in Screenshot Tool"
-      data-text="Capture your screen instantly from inside the app. No 3rd-party apps. No desktop mess.">
-      <div class="step-label">03 • Screenshot</div>
-    </section>
-
-    <section id="scene-3" class="scene-step" data-scene="3"
-      data-title="Custom Keybinds"
-      data-text="Hide, show, toggle, move. All on your own keybinds. You don’t have to use what we picked.">
-      <div class="step-label">04 • Keybinds</div>
-    </section>
-
-    <section id="scene-4" class="scene-step" data-scene="4"
-      data-title="Privacy-First"
-      data-text="No trackers. No analytics. No silent calls. It just opens a floating browser and stays there.">
-      <div class="step-label">05 • Privacy</div>
-    </section>
-
-    <section id="scene-5" class="scene-step" data-scene="5"
-      data-title="Built in Swift"
-      data-text="Native macOS performance. Fast startup, low memory, looks like a real Mac app because it is.">
-      <div class="step-label">06 • Swift</div>
-    </section>
-
-    <section id="scene-6" class="scene-step" data-scene="6"
-      data-title="$80 — One-Time License"
-      data-text="Pay once. Keep it. Lifetime updates. Discord help."
-      data-cta="Contact to Buy"
-      data-ctalink="#scene-7">
-      <div class="step-label">07 • License</div>
-    </section>
-
-    <section id="scene-7" class="scene-step" data-scene="7"
-      data-title="Discord Support"
-      data-text="Server: Join Here • Username: Arnsyz"
-      data-cta="Join Discord"
-      data-ctalink="https://discord.gg/Rpn567xcPs">
-      <div class="step-label">08 • Discord</div>
-    </section>
-
-    <!-- little tail so scroll doesn't slam the end -->
-    <section class="scene-step end-spacer" aria-hidden="true"></section>
-  </main>
-
-  <footer class="footer">
+  <footer>
     <small>© 2025 FloatyBrowser. All rights reserved.</small>
   </footer>
 
