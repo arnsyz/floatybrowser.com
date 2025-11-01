@@ -18,6 +18,7 @@ body {
   margin: 0;
   line-height: 1.6;
   overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
 /* Navbar */
@@ -32,6 +33,10 @@ body {
   top: 0;
   z-index: 10;
   box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  transition: background 0.5s ease;
+}
+.navbar:hover {
+  background: rgba(10,12,15,0.95);
 }
 .navbar h1 {
   color: var(--accent);
@@ -42,11 +47,12 @@ body {
   margin-left: 2rem;
   color: var(--text);
   text-decoration: none;
-  transition: color 0.3s, transform 0.3s;
+  transition: color 0.3s, transform 0.3s, text-shadow 0.3s;
 }
 .navbar nav a:hover {
   color: var(--accent);
   transform: translateY(-2px);
+  text-shadow: 0 0 10px var(--accent);
 }
 
 /* Hero */
@@ -56,6 +62,10 @@ body {
   background: linear-gradient(180deg, var(--accent-fade) 0%, transparent 100%), var(--gradient-bg);
   position: relative;
   overflow: hidden;
+  transition: background 1s ease;
+}
+.hero:hover {
+  background: linear-gradient(180deg, rgba(0,170,255,0.25) 0%, transparent 100%), var(--gradient-bg);
 }
 .hero::before {
   content: '';
@@ -66,6 +76,7 @@ body {
   height: 100%;
   background: radial-gradient(circle, rgba(0,170,255,0.1) 0%, transparent 70%);
   opacity: 0.5;
+  transition: opacity 0.5s ease, transform 0.5s ease;
 }
 .supersized {
   font-size: 4rem;
@@ -74,17 +85,20 @@ body {
   background: linear-gradient(135deg, var(--accent), #4dd3ff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  transition: background-position 0.5s ease;
 }
 .hero h3 {
   font-size: 2rem;
   font-weight: 600;
   margin-bottom: 1rem;
   opacity: 0.9;
+  transition: opacity 0.3s ease;
 }
 .hero p {
   font-size: 1.3rem;
   opacity: 0.85;
   margin-bottom: 2rem;
+  transition: opacity 0.3s ease;
 }
 .button {
   display: inline-block;
@@ -94,25 +108,31 @@ body {
   border-radius: var(--radius);
   text-decoration: none;
   font-weight: 700;
-  transition: background 0.3s, box-shadow 0.3s, transform 0.3s;
+  transition: background 0.3s, box-shadow 0.3s, transform 0.3s, filter 0.3s;
   box-shadow: var(--shadow-neumorphic);
 }
 .button:hover {
   background: var(--accent-dark);
   box-shadow: 4px 4px 8px rgba(0,0,0,0.5), -4px -4px 8px rgba(255,255,255,0.1);
-  transform: translateY(-3px);
+  transform: translateY(-3px) rotate(2deg);
+  filter: brightness(1.1);
 }
 
 /* Features */
 .features {
   padding: 5rem 3rem;
   text-align: center;
+  transition: padding 0.5s ease;
 }
 .features h2 {
   color: var(--accent);
   margin-bottom: 5rem;
   font-size: 3.2rem;
   font-weight: 800;
+  transition: transform 0.5s ease;
+}
+.features h2:hover {
+  transform: scale(1.05);
 }
 .demo-container {
   display: flex;
@@ -137,20 +157,26 @@ body {
   background: var(--card);
   border-radius: var(--radius);
   box-shadow: var(--shadow-neumorphic);
-  transition: transform 0.3s, box-shadow 0.3s;
+  transition: transform 0.5s ease, box-shadow 0.5s ease, background 0.5s ease;
 }
 .feature-section:hover {
-  transform: translateY(-5px);
+  transform: translateY(-10px) rotate(1deg);
   box-shadow: 12px 12px 24px rgba(0,0,0,0.5), -12px -12px 24px rgba(255,255,255,0.05);
+  background: #1f2328;
 }
 .feature-section h3 {
   color: var(--accent);
   font-size: 2.5rem;
   margin-bottom: 1.5rem;
+  transition: color 0.3s ease;
+}
+.feature-section h3:hover {
+  color: #4dd3ff;
 }
 .feature-section p {
   font-size: 1.4rem;
   opacity: 0.9;
+  transition: opacity 0.3s ease;
 }
 .macbook-sticky {
   flex: 1;
@@ -161,13 +187,14 @@ body {
   align-items: center;
   justify-content: center;
   z-index: 5;
+  transition: top 0.5s ease;
 }
 .macbook {
   width: 800px;
   height: 480px;
   position: relative;
   transform-style: preserve-3d;
-  transition: transform 0.5s ease;
+  transition: transform 0.5s ease, filter 0.5s ease;
 }
 .macbook-screen {
   width: 100%;
@@ -179,6 +206,10 @@ body {
   position: relative;
   overflow: hidden;
   box-shadow: 0 30px 60px rgba(0,0,0,0.7);
+  transition: box-shadow 0.5s ease;
+}
+.macbook-screen:hover {
+  box-shadow: 0 30px 60px rgba(0,170,255,0.3);
 }
 .macbook-screen::before {
   content: '';
@@ -201,6 +232,10 @@ body {
   background: linear-gradient(180deg, #ddd 0%, #bbb 100%);
   border-radius: 0 0 50px 50px;
   box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+  transition: background 0.5s ease;
+}
+.macbook:hover::after {
+  background: linear-gradient(180deg, #eee 0%, #ccc 100%);
 }
 .screen {
   position: absolute;
@@ -209,10 +244,11 @@ body {
   width: 100%;
   height: 100%;
   opacity: 0;
-  transition: opacity 1s ease-in-out;
+  transition: opacity 1.2s ease-in-out, transform 1.2s ease-in-out;
 }
 .screen.active {
   opacity: 1;
+  transform: scale(1.02);
 }
 .browser-window {
   width: 100%;
@@ -221,6 +257,10 @@ body {
   flex-direction: column;
   background: #fafafa;
   color: #222;
+  transition: background 0.3s ease;
+}
+.browser-window:hover {
+  background: #fff;
 }
 .title-bar {
   height: 35px;
@@ -229,6 +269,10 @@ body {
   align-items: center;
   padding: 0 10px;
   border-bottom: 1px solid #ddd;
+  transition: background 0.3s ease;
+}
+.title-bar:hover {
+  background: #f5f5f5;
 }
 .buttons {
   display: flex;
@@ -238,6 +282,10 @@ body {
   height: 14px;
   border-radius: 50%;
   margin-right: 8px;
+  transition: transform 0.3s ease;
+}
+.buttons span:hover {
+  transform: scale(1.2);
 }
 .close { background: #ff5f57; }
 .minimize { background: #ffbd2e; }
@@ -247,6 +295,10 @@ body {
   text-align: center;
   font-size: 1rem;
   color: #444;
+  transition: color 0.3s ease;
+}
+.title:hover {
+  color: #000;
 }
 .content {
   flex: 1;
@@ -256,10 +308,15 @@ body {
   align-items: center;
   justify-content: center;
   text-align: center;
+  transition: padding 0.3s ease;
 }
 .content h3 {
   font-size: 2rem;
   margin-bottom: 1.5rem;
+  transition: font-size 0.3s ease;
+}
+.content h3:hover {
+  font-size: 2.1rem;
 }
 .content p {
   font-size: 1.3rem;
@@ -273,6 +330,11 @@ body {
   color: #007aff;
   font-weight: bold;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+.demo-visual:hover {
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  transform: translateY(-2px);
 }
 
 /* Pricing */
@@ -280,22 +342,35 @@ body {
   background: linear-gradient(180deg, rgba(255,255,255,0.05) 0%, transparent 100%);
   text-align: center;
   padding: 5rem 3rem;
+  transition: background 0.5s ease;
+}
+.pricing:hover {
+  background: linear-gradient(180deg, rgba(255,255,255,0.1) 0%, transparent 100%);
 }
 .price {
   font-size: 2.2rem;
   font-weight: 800;
   color: var(--accent);
+  transition: color 0.3s ease;
+}
+.price:hover {
+  color: #4dd3ff;
 }
 .note {
   opacity: 0.8;
   margin-top: 0.7rem;
   font-size: 1.2rem;
+  transition: opacity 0.3s ease;
+}
+.note:hover {
+  opacity: 1;
 }
 
 /* Contact */
 .contact {
   padding: 4rem 3rem;
   text-align: center;
+  transition: padding 0.5s ease;
 }
 .contact ul {
   list-style: none;
@@ -304,10 +379,11 @@ body {
 .contact a {
   color: var(--accent);
   text-decoration: none;
-  transition: color 0.3s;
+  transition: color 0.3s, transform 0.3s;
 }
 .contact a:hover {
   color: #4dd3ff;
+  transform: scale(1.05);
 }
 
 /* Footer */
@@ -317,6 +393,10 @@ footer {
   opacity: 0.7;
   padding-bottom: 2rem;
   font-size: 1rem;
+  transition: opacity 0.3s ease;
+}
+footer:hover {
+  opacity: 1;
 }
 
 /* Media Queries for Responsiveness */
