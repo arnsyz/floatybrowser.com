@@ -17,11 +17,11 @@
     </nav>
   </header>
 
-  <!-- SCROLLY: pinned MacBook + steps -->
+  <!-- SCROLL-DRIVEN PRODUCT REVEAL -->
   <main id="scrolly" class="scrolly">
-    <!-- Left: pinned MacBook -->
+    <!-- pinned macbook -->
     <div class="stage">
-      <div class="macbook" aria-hidden="true">
+      <div class="macbook" id="macbook" aria-hidden="true">
         <div class="lid">
           <div class="bezel">
             <div class="notch">
@@ -29,9 +29,8 @@
               <span class="sensor"></span>
             </div>
             <div class="screen">
-              <!-- dynamic content goes here -->
               <div id="screen-content" class="screen-content">
-                <!-- JS will inject the first step here -->
+                <!-- JS injects here -->
               </div>
             </div>
           </div>
@@ -44,35 +43,88 @@
       </div>
     </div>
 
-    <!-- Right: scroll steps that drive the scenes -->
+    <!-- scroll scenes (each one = one “shot”) -->
     <article class="steps">
-      <!-- Each .step is one scene. Data becomes laptop screen content. -->
-      <section class="step" data-title="FloatyBrowser" data-text="The Browser That Floats Above Everything" data-cta="Get FloatyBrowser" data-ctalink="#license"></section>
+      <!-- scene 0: hero -->
+      <section
+        class="step"
+        data-scene="0"
+        data-title="FloatyBrowser"
+        data-text="The Browser That Floats Above Everything."
+        data-cta="Get FloatyBrowser"
+        data-ctalink="#license"
+      ></section>
 
-      <section class="step" data-title="Compatible With Lockdown Browser" data-text="Lightweight. Private. Always on top. Built natively for macOS in Swift."></section>
+      <!-- scene 1: lockdown -->
+      <section
+        class="step"
+        data-scene="1"
+        data-title="Works with Lockdown Browser"
+        data-text="Designed to stay on top. No switching. No dragging. Just open and work."
+      ></section>
 
-      <section class="step" data-title="Built-in Screenshot Tool" data-text="Capture your screen instantly from within the app — no external tools required."></section>
+      <!-- scene 2: screenshot -->
+      <section
+        class="step"
+        data-scene="2"
+        data-title="Built-in Screenshot Tool"
+        data-text="Capture, copy, send. No third-party apps. No 20 menu clicks."
+      ></section>
 
-      <section class="step" data-title="Custom Keybinds" data-text="Set your own shortcuts to hide, show, and control FloatyBrowser exactly how you like."></section>
+      <!-- scene 3: keybinds -->
+      <section
+        class="step"
+        data-scene="3"
+        data-title="Custom Keybinds"
+        data-text="Map hide/show and controls to whatever keys you actually use."
+      ></section>
 
-      <section class="step" data-title="Privacy-First" data-text="No trackers. No analytics. Minimal, focused, and fast."></section>
+      <!-- scene 4: privacy -->
+      <section
+        class="step"
+        data-scene="4"
+        data-title="Privacy-First"
+        data-text="No trackers. No analytics. No random calls home."
+      ></section>
 
-      <section class="step" data-title="Built in Swift" data-text="Optimized for macOS performance and stability using native code."></section>
+      <!-- scene 5: swift -->
+      <section
+        class="step"
+        data-scene="5"
+        data-title="Built in Swift"
+        data-text="Made for macOS. Fast, stable, native."
+      ></section>
 
-      <section class="step" data-title="$80 — One-Time License" data-text="Lifetime updates and Discord support included." data-cta="Contact to Purchase" data-ctalink="#contact"></section>
+      <!-- scene 6: price -->
+      <section
+        class="step"
+        data-scene="6"
+        data-title="$80 One-Time"
+        data-text="Lifetime updates and Discord support included."
+        data-cta="Contact to Buy"
+        data-ctalink="#contact"
+      ></section>
 
-      <section class="step" data-title="Get in Touch" data-text="Discord Server: Join Here • Discord Username: Arnsyz" data-cta="Join Discord" data-ctalink="https://discord.gg/Rpn567xcPs"></section>
+      <!-- scene 7: discord -->
+      <section
+        class="step"
+        data-scene="7"
+        data-title="Discord Support"
+        data-text="Server: Join Here • User: Arnsyz"
+        data-cta="Join Discord"
+        data-ctalink="https://discord.gg/Rpn567xcPs"
+      ></section>
     </article>
   </main>
 
-  <!-- Standard sections (SEO/fallback). They’ll animate in after the scrolly. -->
+  <!-- fallback/normal sections (below reveal) -->
   <section id="features" class="features reveal">
     <h2>Key Features</h2>
     <div class="feature-grid">
       <div class="feature-card"><h3>🪶 Lightweight</h3><p>Runs smoothly without draining battery or memory.</p></div>
       <div class="feature-card"><h3>📸 Built-in Screenshot Tool</h3><p>Capture your screen instantly from within the app.</p></div>
-      <div class="feature-card"><h3>⌨️ Custom Keybinds</h3><p>Create your own shortcuts to manage FloatyBrowser.</p></div>
-      <div class="feature-card"><h3>🔒 Privacy-First</h3><p>No trackers, no analytics — just focus.</p></div>
+      <div class="feature-card"><h3>⌨️ Custom Keybinds</h3><p>Hide, show, manage FloatyBrowser exactly how you like.</p></div>
+      <div class="feature-card"><h3>🔒 Privacy-First</h3><p>No trackers, no analytics—just focus.</p></div>
       <div class="feature-card"><h3>⚡ Built in Swift</h3><p>Optimized for macOS performance and stability.</p></div>
     </div>
   </section>
