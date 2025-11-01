@@ -1,72 +1,71 @@
 document.addEventListener("DOMContentLoaded", () => {
   const screen = document.getElementById("screen-content");
-  const macbook = document.getElementById("macbook");
+  const mac = document.getElementById("macbook");
   const steps = [...document.querySelectorAll(".step")];
 
-  // each scene can define how “extra” it looks
-  // you said “make it more sceny per scroll” so I gave each scene a look
-  const sceneStyles = [
+  // per-scene styling to fake the “video” changing look every scroll
+  const sceneLooks = [
     {
       bg: "radial-gradient(70% 60% at 50% 5%, rgba(0,183,255,.18), #0e1114 70%)",
-      tone: "rgba(255,255,255,.03)",
-      border: "rgba(0,183,255,.25)",
-      text: "#e7ecf2",
-      tilt: "5deg",
+      screenBg: "rgba(255,255,255,.03)",
+      screenBorder: "rgba(0,183,255,.45)",
+      screenText: "#ecf1f6",
+      tilt: "4deg",
       scale: "1"
     },
     {
-      bg: "radial-gradient(60% 50% at 60% 0%, rgba(0,145,255,.2), #0b0f12 70%)",
-      tone: "rgba(10,15,18,.35)",
-      border: "rgba(0,145,255,.35)",
-      text: "#e7ecf2",
-      tilt: "7deg",
+      bg: "radial-gradient(50% 50% at 80% 0%, rgba(0,146,255,.25), #090b0f 70%)",
+      screenBg: "rgba(0,146,255,.04)",
+      screenBorder: "rgba(0,146,255,.5)",
+      screenText: "#f7fbff",
+      tilt: "6deg",
       scale: "1.02"
     },
     {
-      bg: "radial-gradient(70% 60% at 40% 10%, rgba(0,255,213,.16), #0e1114 70%)",
-      tone: "rgba(0,255,213,.04)",
-      border: "rgba(0,255,213,.45)",
-      text: "#f9fffe",
-      tilt: "4deg",
+      bg: "radial-gradient(75% 70% at 10% -10%, rgba(0,255,189,.2), #0b0e12 80%)",
+      screenBg: "rgba(0,255,189,.04)",
+      screenBorder: "rgba(0,255,189,.4)",
+      screenText: "#edfff9",
+      tilt: "5deg",
       scale: "1.03"
     },
     {
-      bg: "radial-gradient(70% 60% at 50% 0%, rgba(255,171,0,.15), #090c10 70%)",
-      tone: "rgba(255,171,0,.035)",
-      border: "rgba(255,171,0,.25)",
-      text: "#fff",
-      tilt: "6deg",
+      bg: "radial-gradient(70% 60% at 30% 0%, rgba(255,171,0,.16), #0a0d11 80%)",
+      screenBg: "rgba(255,171,0,.04)",
+      screenBorder: "rgba(255,171,0,.4)",
+      screenText: "#fff4e3",
+      tilt: "7deg",
       scale: "1.01"
     },
     {
-      bg: "radial-gradient(80% 70% at 50% -5%, rgba(255,0,105,.2), #0b0f12 70%)",
-      tone: "rgba(255,0,105,.04)",
-      border: "rgba(255,0,105,.35)",
-      text: "#fff3f9",
+      bg: "radial-gradient(65% 58% at 50% 10%, rgba(255,0,104,.2), #090b0f 80%)",
+      screenBg: "rgba(255,0,104,.03)",
+      screenBorder: "rgba(255,0,104,.4)",
+      screenText: "#fff0fa",
       tilt: "5deg",
       scale: "1"
     },
     {
-      bg: "radial-gradient(60% 50% at 60% 5%, rgba(127,94,255,.2), #090b0f 70%)",
-      tone: "rgba(127,94,255,.045)",
-      border: "rgba(127,94,255,.4)",
-      text: "#ffffff",
-      tilt: "8deg",
+      bg: "radial-gradient(65% 58% at 50% -5%, rgba(140,116,255,.3), #090b0f 85%)",
+      screenBg: "rgba(140,116,255,.05)",
+      screenBorder: "rgba(140,116,255,.5)",
+      screenText: "#ffffff",
+      tilt: "6deg",
       scale: "1.04"
     },
     {
-      bg: "radial-gradient(70% 60% at 50% 10%, rgba(0,183,255,.14), #0e1114 70%)",
-      tone: "rgba(0,183,255,.03)",
-      border: "rgba(0,183,255,.4)",
-      text: "#e7ecf2",
-      tilt: "5deg",
-      scale: "1.02"
+      bg: "radial-gradient(70% 60% at 50% 5%, rgba(0,183,255,.15), #0e1114 80%)",
+      screenBg: "rgba(0,183,255,.03)",
+      screenBorder: "rgba(0,183,255,.45)",
+      screenText: "#edf8ff",
+      tilt: "4deg",
+      scale: "1.01"
     },
     {
-      bg: "radial-gradient(70% 60% at 50% 0%, rgba(0,255,157,.18), #0b0e12 70%)",
-      tone: "rgba(0,255,157,.04)",
-      border: "rgba(0,255,157,.5)",
-      text: "#eafff7",
+      bg: "radial-gradient(70% 60% at 60% 0%, rgba(0,255,134,.22), #0a0d11 80%)",
+      screenBg: "rgba(0,255,134,.03)",
+      screenBorder: "rgba(0,255,134,.5)",
+      screenText: "#edfff7",
       tilt: "3deg",
       scale: "1"
     }
@@ -78,7 +77,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const cta = step.dataset.cta;
     const link = step.dataset.ctalink || "#";
 
-    const button = cta
+    const btn = cta
       ? `<a href="${link}" class="button" ${link.startsWith("#") ? "" : 'target="_blank" rel="noopener"'}>${cta}</a>`
       : "";
 
@@ -86,60 +85,58 @@ document.addEventListener("DOMContentLoaded", () => {
       <div class="screen-card">
         <h2>${title}</h2>
         <p>${text}</p>
-        ${button}
+        ${btn}
       </div>
     `;
   };
 
-  // initial
+  // initial content
   if (steps.length) {
     screen.innerHTML = renderScene(steps[0]);
-    applySceneStyle(0);
+    applyScene(0);
   }
 
-  function applySceneStyle(idx) {
-    const scene = sceneStyles[idx] || sceneStyles[0];
-    document.documentElement.style.setProperty("--scene-bg", scene.bg);
-    document.documentElement.style.setProperty("--screen-tone", scene.tone);
-    document.documentElement.style.setProperty("--screen-border", scene.border);
-    document.documentElement.style.setProperty("--screen-text", scene.text);
-    document.documentElement.style.setProperty("--mac-tilt", scene.tilt);
-    document.documentElement.style.setProperty("--mac-scale", scene.scale);
+  function applyScene(idx) {
+    const look = sceneLooks[idx] || sceneLooks[0];
+    const root = document.documentElement;
+    root.style.setProperty("--scene-bg", look.bg);
+    root.style.setProperty("--screen-bg", look.screenBg);
+    root.style.setProperty("--screen-border", look.screenBorder);
+    root.style.setProperty("--screen-text", look.screenText);
+    root.style.setProperty("--mac-tilt", look.tilt);
+    root.style.setProperty("--mac-scale", look.scale);
   }
 
-  // intersection for each scene
+  // observe each step to swap screen like the video
   const io = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (!entry.isIntersecting) return;
-      const sceneIndex = Number(entry.target.dataset.scene || 0);
-      const newHTML = renderScene(entry.target);
+      const idx = Number(entry.target.dataset.scene || 0);
+      const html = renderScene(entry.target);
 
-      // crossfade
+      // crossfade by temporarily placing a ghost over screen
       const ghost = document.createElement("div");
       ghost.className = "screen-content";
-      ghost.innerHTML = newHTML;
+      ghost.innerHTML = html;
       screen.parentElement.appendChild(ghost);
-
-      // fade in
       const card = ghost.querySelector(".screen-card");
-      if (card) card.style.animation = "fadeIn .4s ease both";
+      if (card) card.style.animation = "fadeIn .35s ease both";
 
       setTimeout(() => {
-        screen.innerHTML = newHTML;
+        screen.innerHTML = html;
         ghost.remove();
-      }, 390);
+      }, 340);
 
-      applySceneStyle(sceneIndex);
+      applyScene(idx);
     });
-  }, { threshold: 0.55 });
+  }, { threshold: 0.52 });
 
-  steps.forEach((step) => io.observe(step));
+  steps.forEach(step => io.observe(step));
 
-  // reveal normal sections later
-  const reveal = new IntersectionObserver((entries) => {
-    entries.forEach((e) => {
-      if (e.isIntersecting) e.target.classList.add("visible");
-    });
+  // reveal bottom sections
+  const revealIO = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add("visible"); });
   }, { threshold: 0.25 });
-  document.querySelectorAll(".features,.pricing,.contact").forEach((el) => reveal.observe(el));
+
+  document.querySelectorAll(".features,.pricing,.contact").forEach(el => revealIO.observe(el));
 });
