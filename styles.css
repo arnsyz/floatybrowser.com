@@ -1,64 +1,128 @@
 :root {
-  --bg: #121417;
-  --card: #1a1d21;
-  --text: #dfe3ea;
+  --bg: #0e1114;
+  --card: #171b1f;
+  --text: #e4e8ee;
   --accent: #00b7ff;
   --accent-fade: rgba(0,183,255,0.12);
-  --radius: 14px;
+  --radius: 16px;
   font-family: "Inter", system-ui, -apple-system, sans-serif;
-  color-scheme: dark;
 }
 
+/* GLOBAL */
+html {
+  scroll-behavior: smooth;
+}
 body {
   background: var(--bg);
   color: var(--text);
   margin: 0;
   line-height: 1.6;
+  overflow-x: hidden;
 }
 
-/* Navbar */
+/* NAVBAR */
 .navbar {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 1rem 2rem;
-  background: rgba(255,255,255,0.04);
-  backdrop-filter: blur(12px);
   position: sticky;
   top: 0;
-  z-index: 10;
+  z-index: 100;
+  background: rgba(20,20,22,0.35);
+  backdrop-filter: blur(12px);
+  transition: background 0.3s ease;
 }
 .navbar h1 {
   color: var(--accent);
   font-size: 1.4rem;
-  letter-spacing: 0.5px;
 }
 .navbar nav a {
   margin-left: 1.5rem;
   color: var(--text);
   text-decoration: none;
-  transition: 0.2s;
+  transition: 0.3s;
 }
 .navbar nav a:hover {
   color: var(--accent);
 }
 
-/* Hero */
+/* INTRO MACBOOK */
+.intro {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: radial-gradient(circle at top, #101419 0%, #0e1114 100%);
+  position: relative;
+  overflow: hidden;
+}
+.macbook {
+  width: 75%;
+  max-width: 720px;
+  aspect-ratio: 16/9;
+  background: linear-gradient(145deg, #1e2125, #0f1215);
+  border-radius: 18px;
+  border: 2px solid #2c2f33;
+  box-shadow: 0 0 30px rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: scale(1);
+  transition: transform 0.8s ease, opacity 1s ease;
+}
+.screen {
+  width: 93%;
+  height: 85%;
+  background: linear-gradient(180deg, #0e141a, #11161b);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent);
+  font-weight: 700;
+}
+.screen-content {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 1.6s ease 0.5s forwards;
+}
+.scroll-indicator {
+  position: absolute;
+  bottom: 2rem;
+  opacity: 0.6;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  animation: bounce 2s infinite;
+  color: var(--accent);
+}
+@keyframes fadeUp {
+  to {opacity: 1; transform: translateY(0);}
+}
+@keyframes bounce {
+  0%, 100% {transform: translateY(0);}
+  50% {transform: translateY(-6px);}
+}
+
+/* HERO */
 .hero {
   text-align: center;
   padding: 6rem 2rem 4rem;
   background: linear-gradient(180deg, var(--accent-fade) 0%, var(--bg) 100%);
+  opacity: 0;
+  transform: translateY(60px);
+  transition: all 0.9s ease;
+}
+.hero.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 .hero h2 {
   font-size: 2.4rem;
-  color: var(--text);
   font-weight: 700;
   margin-bottom: 0.8rem;
-}
-.hero p {
-  font-size: 1.1rem;
-  opacity: 0.85;
-  margin-bottom: 1.5rem;
 }
 .button {
   display: inline-block;
@@ -74,33 +138,37 @@ body {
   background: #4dd3ff;
 }
 
-/* Features */
-.features {
-  padding: 3.5rem 2rem;
-  text-align: center;
+/* SECTIONS */
+.features, .pricing, .contact {
+  opacity: 0;
+  transform: translateY(60px);
+  transition: all 1s ease;
 }
-.features h2 {
-  color: var(--accent);
-  margin-bottom: 2rem;
+.visible {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+.features {
+  padding: 4rem 2rem;
+  text-align: center;
 }
 .feature-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 1rem;
+  margin-top: 2rem;
 }
 .feature-card {
   background: var(--card);
   border-radius: var(--radius);
-  padding: 1.4rem;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-  text-align: left;
+  padding: 1.5rem;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+  transition: transform 0.4s ease;
 }
-.feature-card h3 {
-  margin-top: 0;
-  color: var(--accent);
+.feature-card:hover {
+  transform: translateY(-8px);
 }
 
-/* Pricing */
 .pricing {
   background: rgba(255,255,255,0.03);
   text-align: center;
@@ -111,26 +179,16 @@ body {
   font-weight: 700;
   color: var(--accent);
 }
-.note {
-  opacity: 0.8;
-  margin-top: 0.5rem;
-}
 
-/* Contact */
 .contact {
   padding: 3rem 2rem;
   text-align: center;
-}
-.contact ul {
-  list-style: none;
-  padding: 0;
 }
 .contact a {
   color: var(--accent);
   text-decoration: none;
 }
 
-/* Footer */
 footer {
   margin-top: 3rem;
   text-align: center;
