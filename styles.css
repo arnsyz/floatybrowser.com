@@ -1,14 +1,14 @@
 :root{
   --bg: radial-gradient(70% 60% at 50% 5%, rgba(0,183,255,.18), #0e1114 70%);
-  --text: #edf2f8;
+  --text: #eef2f7;
   --accent: #00b7ff;
 
-  /* these change per scene */
+  /* scene-driven vars */
   --screen-bg: rgba(255,255,255,.03);
   --screen-border: rgba(0,183,255,.45);
-  --screen-text: #edf2f8;
+  --screen-text: #eef2f7;
   --mac-rot-x: 14deg;
-  --mac-rot-y: -10deg;
+  --mac-rot-y: -12deg;
   --mac-scale: 1;
 }
 
@@ -19,94 +19,95 @@ body{
   background:var(--bg);
   color:var(--text);
   font-family:Inter,system-ui,-apple-system,sans-serif;
-  line-height:1.6;
   min-height:100vh;
-  transition:background .45s ease;
+  transition:background .5s ease;
   overflow-x:hidden;
 }
 
-/* navbar */
+/* NAV */
 .navbar{
-  position:fixed;top:0;left:0;right:0;z-index:200;
+  position:fixed;top:0;left:0;right:0;z-index:300;
   display:flex;justify-content:space-between;align-items:center;
   padding:1rem 2rem;
-  background:rgba(4,5,6,.25);
+  background:rgba(4,5,6,.3);
   backdrop-filter:blur(14px);
 }
-.navbar h1{margin:0;color:var(--accent);font-size:1.1rem}
-.navbar nav a{margin-left:1.25rem;color:var(--text);text-decoration:none;opacity:.85;transition:.2s}
+.navbar h1{margin:0;color:var(--accent);font-size:1.05rem}
+.navbar nav a{
+  margin-left:1.25rem;
+  color:var(--text);
+  text-decoration:none;
+  opacity:.85;
+  transition:.2s;
+}
 .navbar nav a:hover{opacity:1}
 
-/* fixed macbook layer */
+/* FIXED MACBOOK */
 .macbook-layer{
   position:fixed;
   inset:0;
   display:grid;
   place-items:center;
+  z-index:100;
   pointer-events:none;
-  z-index:50;
 }
-.scene-3d{
-  width:100%;
-  height:100%;
-  display:grid;
-  place-items:center;
+.persp{
+  width:100%;height:100%;
+  display:grid;place-items:center;
   perspective:1600px;
-  perspective-origin:50% 40%;
+  perspective-origin:50% 35%;
 }
 .macbook-3d{
   position:relative;
-  width:min(1100px,94vw);
+  width:min(1100px,96vw);
   transform-style:preserve-3d;
   transform:rotateX(var(--mac-rot-x)) rotateY(var(--mac-rot-y)) scale(var(--mac-scale));
   transition:transform .4s ease;
 }
 
-/* lid */
+/* LID */
 .lid{
-  position:relative;
   width:100%;
-  height:54%;
-  transform:translateZ(24px);
+  height:52%;
+  transform:translateZ(28px);
 }
-.inner-lid{
-  background:linear-gradient(180deg,#10171d,#0c1014);
-  border-radius:28px 28px 12px 12px;
-  padding:14px;
-  box-shadow:0 22px 50px rgba(0,0,0,.45);
+.lid-inner{
   height:100%;
-}
-.screen-frame{
-  width:100%;height:100%;
+  background:linear-gradient(180deg,#10171d,#0d1115);
+  border-radius:28px 28px 14px 14px;
+  padding:14px;
+  box-shadow:0 22px 50px rgba(0,0,0,.55);
+  position:relative;
 }
 .lid-notch{
   position:absolute;top:12px;left:50%;transform:translateX(-50%);
-  width:140px;height:20px;border-radius:0 0 14px 14px;
-  background:linear-gradient(180deg,#0a0c0e,#06080a);
-  display:flex;justify-content:center;align-items:center;gap:7px;
-  z-index:3;
+  width:130px;height:20px;
+  background:linear-gradient(180deg,#080a0c,#040506);
+  border-radius:0 0 14px 14px;
+  display:flex;align-items:center;justify-content:center;gap:7px;
+  z-index:4;
 }
-.cam,.dot{background:#272e39;border-radius:999px}
+.cam,.dot{background:#333b45;border-radius:999px}
 .cam{width:8px;height:8px}
 .dot{width:6px;height:6px}
 
 .display{
   position:absolute;
-  inset:24px 26px 22px 26px;
-  background:linear-gradient(180deg,#0b1117,#10171d);
+  inset:24px 26px 20px 26px;
+  background:linear-gradient(190deg,#0b1117,#10171d);
   border-radius:14px;
   overflow:hidden;
 }
 .display::after{
   content:"";
-  position:absolute;inset:-12% -8%;
-  background:radial-gradient(80% 60% at 0% 0%, rgba(255,255,255,.07), transparent 60%);
+  position:absolute;inset:-15% -10%;
+  background:radial-gradient(80% 60% at 5% 0%, rgba(255,255,255,.09), transparent 60%);
   pointer-events:none;
 }
 .screen-content{
   position:absolute;inset:0;
   display:grid;place-items:center;
-  padding:1.8rem;
+  padding:1.5rem;
 }
 .screen-card{
   background:var(--screen-bg);
@@ -115,51 +116,47 @@ body{
   padding:28px 26px;
   text-align:center;
   max-width:78%;
-  box-shadow:0 14px 32px rgba(0,0,0,.4);
+  box-shadow:0 16px 40px rgba(0,0,0,.45);
   animation:fadeIn .35s ease both;
   color:var(--screen-text);
 }
-.screen-card h2{margin:0 0 .3rem;font-size:2.25rem}
-.screen-card p{margin:0 0 .9rem;opacity:.9}
+.screen-card h2{margin:0 0 .4rem;font-size:2.3rem}
+.screen-card p{margin:0 0 .95rem;opacity:.9}
 .screen-card .button{
   display:inline-block;
   background:var(--accent);
   color:#001018;
-  padding:.6rem 1.15rem;
+  padding:.6rem 1.1rem;
   border-radius:12px;
   font-weight:700;
   text-decoration:none;
 }
 .screen-card .button:hover{filter:brightness(1.05)}
 
-/* hinge */
+/* HINGE */
 .hinge{
-  width:62%;
+  width:58%;
   height:14px;
-  margin:6px auto 0;
-  background:linear-gradient(90deg,#0d0f13,#181d23,#0d0f13);
-  border-radius:8px;
+  margin:8px auto 0;
+  background:linear-gradient(90deg,#0d0f13,#161b23,#0d0f13);
+  border-radius:10px;
   transform:translateZ(12px);
-  filter:drop-shadow(0 6px 12px rgba(0,0,0,.65));
+  filter:drop-shadow(0 6px 14px rgba(0,0,0,.55));
 }
 
-/* base */
+/* BASE */
 .base{
   position:relative;
   width:90%;
-  margin:10px auto 0;
-  background:linear-gradient(180deg,#171c21,#0c1014 50%,#0a0d10 100%);
+  margin:12px auto 0;
+  background:linear-gradient(180deg,#171c21,#0c1014 50%,#080b0e 100%);
   border-radius:0 0 22px 22px;
-  padding:22px 20px 30px;
+  padding:20px 20px 30px;
   transform:translateZ(4px);
-  box-shadow:0 10px 28px rgba(0,0,0,.4);
+  box-shadow:0 10px 28px rgba(0,0,0,.45);
 }
-.keyboard{
-  display:flex;
-  flex-direction:column;
-  gap:6px;
-}
-.key-row{display:flex;gap:6px}
+.kb-grid{display:flex;flex-direction:column;gap:6px}
+.kb-row{display:flex;gap:6px}
 .key{
   flex:1 1 auto;
   background:radial-gradient(circle at 30% 30%, #1d2228 0%, #0d1114 75%);
@@ -167,73 +164,87 @@ body{
   border-radius:6px;
   box-shadow:0 2px 4px rgba(0,0,0,.35);
 }
-.key-sm{height:13px;flex:0 0 6%}
-.key-md{flex:0 0 14%}
-.key-long{flex:0 0 24%}
-.key-longer{flex:0 0 30%}
-.key-lg{flex:0 0 10%;height:17px}
-.key-mid{flex:0 0 12%}
-.key-thin{flex:0 0 10%;height:14px}
-.spacebar{
+.key.sm{flex:0 0 6%;height:13px}
+.key.md{flex:0 0 14%}
+.key.long{flex:0 0 22%}
+.key.long2{flex:0 0 28%}
+.key.lg{flex:0 0 10%;height:17px}
+.key.mid{flex:0 0 12%}
+.key.thin{flex:0 0 10%;height:14px}
+.space{
   flex:1 1 auto;
   background:radial-gradient(circle at 20% 10%, rgba(255,255,255,.04), rgba(3,4,5,0));
-  border:1px solid rgba(255,255,255,.04);
-  height:19px;border-radius:12px;
+  border:1px solid rgba(255,255,255,.02);
+  height:19px;
+  border-radius:12px;
 }
 .trackpad{
-  width:38%;
+  width:36%;
   height:62px;
   margin:16px auto 0;
-  background:radial-gradient(circle at 30% 22%, rgba(255,255,255,.08), rgba(0,0,0,0));
+  background:radial-gradient(circle at 25% 10%, rgba(255,255,255,.08), rgba(0,0,0,0));
   border:1px solid rgba(255,255,255,.03);
   border-radius:14px;
-  box-shadow:inset 0 0 0 1px rgba(0,0,0,.25);
+  box-shadow:inset 0 0 0 1px rgba(0,0,0,.3);
 }
 .mac-shadow{
-  position:absolute;
-  bottom:-50px;left:12%;right:12%;
+  position:absolute;inset:auto 12% -48px 12%;
   height:40px;
-  background:radial-gradient(70% 50% at 50% 50%, rgba(0,0,0,.65), transparent 72%);
-  filter:blur(18px);
-  transform:translateZ(0);
+  background:radial-gradient(70% 50% at 50% 50%, rgba(0,0,0,.6), transparent 78%);
+  filter:blur(16px);
 }
 
-/* scroll track */
+/* SCROLL TRACK */
 .scroll-track{
   position:relative;
-  z-index:120;
-  padding-top:80px; /* navbar space */
+  z-index:150;
+  padding-top:74px;
 }
-.step{
+.scene-step{
   height:100vh;
+  position:relative;
 }
-.end-pad{height:60vh}
+.scene-step .step-label{
+  position:fixed;
+  right:20px;
+  top:90px;
+  background:rgba(0,0,0,.35);
+  border:1px solid rgba(255,255,255,.05);
+  border-radius:999px;
+  padding:.35rem .85rem;
+  font-size:.7rem;
+  letter-spacing:.05em;
+  backdrop-filter:blur(12px);
+  pointer-events:none;
+  z-index:400;
+}
+.end-spacer{height:40vh}
 
-/* footer */
+/* FOOTER */
 .footer{
-  position:relative;z-index:200;
+  position:relative;
+  z-index:200;
   text-align:center;
   padding:1.5rem 0 2rem;
-  font-size:.9rem;
   opacity:.65;
 }
 
-/* animation */
+/* ANIMATIONS */
 @keyframes fadeIn{
   from{opacity:0;transform:translateY(12px)}
   to{opacity:1;transform:translateY(0)}
 }
 
-/* responsiveness */
-@media(max-width: 900px){
+/* RESPONSIVE */
+@media (max-width: 980px){
   .macbook-3d{width:100vw}
-  .screen-card{max-width:92%}
-  .navbar{padding:1rem}
+  .screen-card{max-width:90%}
+  .scene-step .step-label{right:12px}
 }
-@media(max-width: 600px){
+@media (max-width: 600px){
+  .display{inset:20px 10px 16px 10px}
   .screen-card h2{font-size:1.7rem}
-  .display{inset:18px 12px 16px 12px}
-  .base{width:94%}
+  .base{width:95%}
 }
 @media (prefers-reduced-motion:reduce){
   *{transition:none!important;animation:none!important}
