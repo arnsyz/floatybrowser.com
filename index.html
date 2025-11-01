@@ -1,79 +1,79 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>FloatyBrowser — Premium macOS Utility</title>
-  <link rel="stylesheet" href="styles.css">
-  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <header class="navbar">
     <h1>FloatyBrowser</h1>
     <nav>
-      <a href="#features">Features</a>
+      <a href="#scrolly">Overview</a>
       <a href="#license">License</a>
       <a href="#contact">Contact</a>
     </nav>
   </header>
 
-  <!-- Cinematic Intro (CSS MacBook) -->
-  <section class="intro" aria-label="Intro">
-    <div class="macbook" aria-hidden="true">
-      <div class="lid">
-        <div class="bezel">
-          <div class="camera"></div>
-          <div class="screen">
-            <div class="screen-content">
-              <h2>FloatyBrowser</h2>
-              <p>The Browser That Floats Above Everything</p>
+  <!-- SCROLLY: pinned MacBook + steps -->
+  <main id="scrolly" class="scrolly">
+    <!-- Left: pinned MacBook -->
+    <div class="stage">
+      <div class="macbook" aria-hidden="true">
+        <div class="lid">
+          <div class="bezel">
+            <div class="notch">
+              <span class="cam"></span>
+              <span class="sensor"></span>
+            </div>
+            <div class="screen">
+              <!-- dynamic content goes here -->
+              <div id="screen-content" class="screen-content">
+                <!-- JS will inject the first step here -->
+              </div>
             </div>
           </div>
         </div>
+        <div class="hinge"></div>
+        <div class="base">
+          <div class="deck"></div>
+          <div class="shadow"></div>
+        </div>
       </div>
-      <div class="hinge"></div>
-      <div class="base">
-        <div class="touchbar"></div>
-        <div class="deck"></div>
-      </div>
-      <div class="shadow"></div>
     </div>
-    <div class="scroll-indicator" role="img" aria-label="Scroll to explore">▼ Scroll</div>
-  </section>
 
-  <!-- Main site content -->
-  <section class="hero reveal">
-    <div class="hero-content">
-      <h2>The Browser That Floats Above Everything</h2>
-      <h2>Compatible With Lockdown Browser</h2>
-      <p>Lightweight. Private. Always on top.<br>Built natively for macOS in Swift.</p>
-      <a href="#license" class="button">Get FloatyBrowser</a>
-    </div>
-  </section>
+    <!-- Right: scroll steps that drive the scenes -->
+    <article class="steps">
+      <!-- Each .step is one scene. Data becomes laptop screen content. -->
+      <section class="step" data-title="FloatyBrowser" data-text="The Browser That Floats Above Everything" data-cta="Get FloatyBrowser" data-ctalink="#license"></section>
 
+      <section class="step" data-title="Compatible With Lockdown Browser" data-text="Lightweight. Private. Always on top. Built natively for macOS in Swift."></section>
+
+      <section class="step" data-title="Built-in Screenshot Tool" data-text="Capture your screen instantly from within the app — no external tools required."></section>
+
+      <section class="step" data-title="Custom Keybinds" data-text="Set your own shortcuts to hide, show, and control FloatyBrowser exactly how you like."></section>
+
+      <section class="step" data-title="Privacy-First" data-text="No trackers. No analytics. Minimal, focused, and fast."></section>
+
+      <section class="step" data-title="Built in Swift" data-text="Optimized for macOS performance and stability using native code."></section>
+
+      <section class="step" data-title="$80 — One-Time License" data-text="Lifetime updates and Discord support included." data-cta="Contact to Purchase" data-ctalink="#contact"></section>
+
+      <section class="step" data-title="Get in Touch" data-text="Discord Server: Join Here • Discord Username: Arnsyz" data-cta="Join Discord" data-ctalink="https://discord.gg/Rpn567xcPs"></section>
+    </article>
+  </main>
+
+  <!-- Standard sections (SEO/fallback). They’ll animate in after the scrolly. -->
   <section id="features" class="features reveal">
     <h2>Key Features</h2>
     <div class="feature-grid">
-      <div class="feature-card">
-        <h3>🪶 Lightweight</h3>
-        <p>Runs smoothly without draining battery or memory.</p>
-      </div>
-      <div class="feature-card">
-        <h3>📸 Built-in Screenshot Tool</h3>
-        <p>Capture your screen instantly from within the app—no external tools required.</p>
-      </div>
-      <div class="feature-card">
-        <h3>⌨️ Custom Keybinds</h3>
-        <p>Create your own shortcuts to hide, show, or manage FloatyBrowser exactly how you like.</p>
-      </div>
-      <div class="feature-card">
-        <h3>🔒 Privacy-First</h3>
-        <p>No trackers, no analytics—just a minimal experience focused on you.</p>
-      </div>
-      <div class="feature-card">
-        <h3>⚡ Built in Swift</h3>
-        <p>Optimized for macOS performance and stability using native code.</p>
-      </div>
+      <div class="feature-card"><h3>🪶 Lightweight</h3><p>Runs smoothly without draining battery or memory.</p></div>
+      <div class="feature-card"><h3>📸 Built-in Screenshot Tool</h3><p>Capture your screen instantly from within the app.</p></div>
+      <div class="feature-card"><h3>⌨️ Custom Keybinds</h3><p>Create your own shortcuts to manage FloatyBrowser.</p></div>
+      <div class="feature-card"><h3>🔒 Privacy-First</h3><p>No trackers, no analytics — just focus.</p></div>
+      <div class="feature-card"><h3>⚡ Built in Swift</h3><p>Optimized for macOS performance and stability.</p></div>
     </div>
   </section>
 
@@ -86,7 +86,6 @@
 
   <section id="contact" class="contact reveal">
     <h2>Get in Touch</h2>
-    <p>Join our community or reach out directly:</p>
     <ul>
       <li><strong>Discord Server:</strong> <a href="https://discord.gg/Rpn567xcPs" target="_blank" rel="noopener">Join Here</a></li>
       <li><strong>Discord Username:</strong> Arnsyz</li>
