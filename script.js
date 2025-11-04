@@ -8,18 +8,18 @@ function showScreen(index) {
   screens.forEach(screen => screen.classList.remove('active'));
   const targetScreen = screens[index - 1];
   targetScreen.classList.add('active');
-  // Enhanced animation with rotation and bounce
+  // Enhanced animation with rotation, bounce, and color fade
   gsap.fromTo(targetScreen.querySelector('.content > *'), 
-    { opacity: 0, y: 40, scale: 0.9, rotation: -5, stagger: 0.2 },
-    { opacity: 1, y: 0, scale: 1, rotation: 0, duration: 1.2, stagger: 0.2, ease: 'bounce.out' }
+    { opacity: 0, y: 50, scale: 0.85, rotation: -10, stagger: 0.25, color: '#aaa' },
+    { opacity: 1, y: 0, scale: 1, rotation: 0, duration: 1.5, stagger: 0.25, ease: 'bounce.out', color: '#222' }
   );
 }
 
 sections.forEach((section, index) => {
   gsap.from(section, {
     opacity: 0,
-    y: 120,
-    duration: 1.5,
+    y: 150,
+    duration: 1.8,
     ease: 'power4.out',
     scrollTrigger: {
       trigger: section,
@@ -38,11 +38,12 @@ sections.forEach((section, index) => {
   });
 });
 
-// Enhanced Parallax for hero with multi-layer effect, scale, and rotation
+// Enhanced Parallax for hero with multi-layer effect, scale, rotation, and blur
 gsap.to('.hero', {
   backgroundPosition: '50% 100%',
-  scale: 1.1,
-  rotation: 2,
+  scale: 1.15,
+  rotation: 3,
+  filter: 'blur(2px)',
   ease: 'none',
   scrollTrigger: {
     trigger: '.hero',
@@ -52,9 +53,10 @@ gsap.to('.hero', {
   }
 });
 gsap.to('.hero::before', {
-  opacity: 0.9,
-  scale: 1.3,
-  rotation: -2,
+  opacity: 1,
+  scale: 1.4,
+  rotation: -3,
+  filter: 'blur(1px)',
   ease: 'none',
   scrollTrigger: {
     trigger: '.hero',
@@ -64,7 +66,7 @@ gsap.to('.hero::before', {
   }
 });
 
-// MacBook enhanced rotation, scale, glow, and added wobble
+// MacBook enhanced with more realistic animations: rotation, scale, glow, wobble, and shadow shift
 const macbook = document.querySelector('.macbook');
 ScrollTrigger.create({
   trigger: '.demo-container',
@@ -73,34 +75,37 @@ ScrollTrigger.create({
   scrub: true,
   onUpdate: (self) => {
     const progress = self.progress;
-    const rotateY = -30 + (60 * progress); // Wider rotation
-    const scale = 0.85 + (0.3 * Math.sin(progress * Math.PI * 2)); // Stronger pulse
-    const glowIntensity = 0.4 + (0.5 * Math.abs(Math.sin(progress * Math.PI))); // Brighter glow
-    const wobble = 5 * Math.sin(progress * Math.PI * 4); // Added wobble effect
-    macbook.style.transform = `perspective(3000px) rotateY(${rotateY}deg) rotateX(${wobble}deg) scale(${scale}) translateY(${progress * 100}px)`;
-    macbook.style.filter = `drop-shadow(0 0 ${glowIntensity * 40}px var(--accent))`;
+    const rotateY = -35 + (70 * progress); // Even wider rotation
+    const scale = 0.8 + (0.4 * Math.sin(progress * Math.PI * 2)); // Intensified pulse
+    const glowIntensity = 0.5 + (0.6 * Math.abs(Math.sin(progress * Math.PI))); // Stronger glow
+    const wobble = 8 * Math.sin(progress * Math.PI * 4); // More pronounced wobble
+    const shadowShift = progress * 20; // Dynamic shadow
+    macbook.style.transform = `perspective(3500px) rotateY(${rotateY}deg) rotateX(${wobble}deg) scale(${scale}) translateY(${progress * 120}px)`;
+    macbook.style.filter = `drop-shadow(${shadowShift}px ${shadowShift}px ${glowIntensity * 50}px var(--accent))`;
   }
 });
 
-// Enhanced micro-interactions for buttons and nav links with color shift
+// Enhanced micro-interactions for buttons and nav links with color shift and glow
 document.querySelectorAll('.button, .navbar nav a').forEach(el => {
   el.addEventListener('mouseenter', () => {
-    gsap.to(el, { scale: 1.15, rotation: 8, duration: 0.6, ease: 'elastic.out(1, 0.5)', boxShadow: '0 0 20px var(--accent)', color: 'var(--accent-dark)' });
+    gsap.to(el, { scale: 1.2, rotation: 10, duration: 0.7, ease: 'elastic.out(1, 0.5)', boxShadow: '0 0 25px var(--accent)', color: 'var(--accent-dark)', filter: 'brightness(1.2)' });
   });
   el.addEventListener('mouseleave', () => {
-    gsap.to(el, { scale: 1, rotation: 0, duration: 0.6, ease: 'elastic.out(1, 0.5)', boxShadow: 'none', color: 'inherit' });
+    gsap.to(el, { scale: 1, rotation: 0, duration: 0.7, ease: 'elastic.out(1, 0.5)', boxShadow: 'none', color: 'inherit', filter: 'brightness(1)' });
   });
 });
 
-// Fade-in for pricing and contact sections with enhanced stagger, rotation, and scale
+// Fade-in for pricing and contact sections with enhanced stagger, rotation, scale, and color transition
 gsap.from('.pricing > *, .contact > *', {
   opacity: 0,
-  y: 60,
-  rotation: 15,
-  scale: 0.9,
-  duration: 1.5,
-  stagger: 0.4,
+  y: 70,
+  rotation: 20,
+  scale: 0.85,
+  duration: 1.8,
+  stagger: 0.5,
   ease: 'power3.out',
+  color: '#ccc',
+  onComplete: function() { gsap.to(this.targets(), { color: 'inherit', duration: 0.5 }); },
   scrollTrigger: {
     trigger: '.pricing',
     start: 'top 80%',
@@ -108,31 +113,32 @@ gsap.from('.pricing > *, .contact > *', {
   }
 });
 
-// Hero content fade-in with enhanced stagger, bounce, and rotation
+// Hero content fade-in with enhanced stagger, bounce, rotation, and shadow
 gsap.from('.hero-content > *', {
   opacity: 0,
-  y: 80,
-  rotation: 10,
-  duration: 1.5,
-  stagger: 0.3,
-  ease: 'bounce.out'
+  y: 100,
+  rotation: 15,
+  duration: 1.8,
+  stagger: 0.4,
+  ease: 'bounce.out',
+  textShadow: '0 0 10px rgba(0,0,0,0)'
 });
 
-// Enhanced particles for hero background with more interactivity
+// Enhanced particles for hero background with more interactivity and color variation
 particlesJS('particles-js', {
   "particles": {
     "number": {
-      "value": 120, // More particles
+      "value": 150,
       "density": {
         "enable": true,
         "value_area": 800
       }
     },
     "color": {
-      "value": ["#00aaff", "#4dd3ff"] // Gradient colors
+      "value": ["#00aaff", "#4dd3ff", "#ffffff"]
     },
     "shape": {
-      "type": ["circle", "triangle"], // Varied shapes
+      "type": ["circle", "triangle", "star"],
       "stroke": {
         "width": 0,
         "color": "#000000"
@@ -142,35 +148,35 @@ particlesJS('particles-js', {
       }
     },
     "opacity": {
-      "value": 0.7,
+      "value": 0.8,
       "random": true,
       "anim": {
         "enable": true,
-        "speed": 2,
-        "opacity_min": 0.2,
+        "speed": 3,
+        "opacity_min": 0.3,
         "sync": false
       }
     },
     "size": {
-      "value": 5,
+      "value": 6,
       "random": true,
       "anim": {
         "enable": true,
-        "speed": 30,
-        "size_min": 0.2,
+        "speed": 40,
+        "size_min": 0.3,
         "sync": false
       }
     },
     "line_linked": {
       "enable": true,
-      "distance": 180,
+      "distance": 200,
       "color": "#00aaff",
-      "opacity": 0.6,
-      "width": 2
+      "opacity": 0.7,
+      "width": 2.5
     },
     "move": {
       "enable": true,
-      "speed": 10, // Faster
+      "speed": 12,
       "direction": "none",
       "random": true,
       "straight": false,
@@ -178,8 +184,8 @@ particlesJS('particles-js', {
       "bounce": true,
       "attract": {
         "enable": true,
-        "rotateX": 800,
-        "rotateY": 1600
+        "rotateX": 1000,
+        "rotateY": 2000
       }
     }
   },
@@ -188,7 +194,7 @@ particlesJS('particles-js', {
     "events": {
       "onhover": {
         "enable": true,
-        "mode": ["bubble", "grab"] // Combined modes
+        "mode": ["bubble", "grab", "repulse"]
       },
       "onclick": {
         "enable": true,
@@ -198,42 +204,44 @@ particlesJS('particles-js', {
     },
     "modes": {
       "grab": {
-        "distance": 500,
+        "distance": 600,
         "line_linked": {
           "opacity": 1
         }
       },
       "bubble": {
-        "distance": 400,
-        "size": 60,
-        "duration": 3,
-        "opacity": 0.9,
-        "speed": 4
+        "distance": 500,
+        "size": 80,
+        "duration": 4,
+        "opacity": 1,
+        "speed": 5
       },
       "repulse": {
-        "distance": 250,
-        "duration": 0.5
+        "distance": 300,
+        "duration": 0.6
       },
       "push": {
-        "particles_nb": 8
+        "particles_nb": 10
       },
       "remove": {
-        "particles_nb": 3
+        "particles_nb": 4
       }
     }
   },
   "retina_detect": true
 });
 
-// Animate use cases on scroll with enhanced effects
+// Animate use cases on scroll with enhanced effects and color fade
 gsap.from('.use-case', {
   opacity: 0,
-  y: 100,
-  rotation: -20,
-  scale: 0.8,
-  duration: 1.5,
-  stagger: 0.3,
+  y: 120,
+  rotation: -25,
+  scale: 0.75,
+  duration: 1.8,
+  stagger: 0.4,
   ease: 'power4.out',
+  backgroundColor: '#111',
+  onComplete: function() { gsap.to(this.targets(), { backgroundColor: 'var(--card)', duration: 0.6 }); },
   scrollTrigger: {
     trigger: '.use-cases',
     start: 'top 85%',
@@ -241,14 +249,15 @@ gsap.from('.use-case', {
   }
 });
 
-// Smooth section transitions with color fade
+// Smooth section transitions with color fade and scale
 gsap.utils.toArray('section').forEach(section => {
   gsap.from(section, {
     opacity: 0,
-    y: 70,
-    duration: 1.2,
+    y: 80,
+    scale: 0.95,
+    duration: 1.5,
     ease: 'power2.inOut',
-    backgroundColor: 'rgba(0,0,0,0.5)',
+    backgroundColor: 'rgba(0,0,0,0.6)',
     scrollTrigger: {
       trigger: section,
       start: 'top 90%',
@@ -257,22 +266,22 @@ gsap.utils.toArray('section').forEach(section => {
   });
 });
 
-// Enhanced hover effects for feature sections with color shift and border glow
+// Enhanced hover effects for feature sections with color shift, border glow, and shadow lift
 document.querySelectorAll('.feature-section').forEach(section => {
   section.addEventListener('mouseenter', () => {
-    gsap.to(section, { scale: 1.08, backgroundColor: '#282c32', duration: 0.8, ease: 'power3.out', border: '2px solid var(--accent)' });
+    gsap.to(section, { scale: 1.1, backgroundColor: '#282c32', duration: 1, ease: 'power3.out', border: '3px solid var(--accent)', boxShadow: '0 0 30px var(--accent-fade)' });
   });
   section.addEventListener('mouseleave', () => {
-    gsap.to(section, { scale: 1, backgroundColor: 'var(--card)', duration: 0.8, ease: 'power3.out', border: 'none' });
+    gsap.to(section, { scale: 1, backgroundColor: 'var(--card)', duration: 1, ease: 'power3.out', border: 'none', boxShadow: 'var(--shadow-neumorphic)' });
   });
 });
 
-// Hover effects for use cases
+// Hover effects for use cases with lift and glow
 document.querySelectorAll('.use-case').forEach(caseEl => {
   caseEl.addEventListener('mouseenter', () => {
-    gsap.to(caseEl, { scale: 1.05, boxShadow: '0 0 20px var(--accent)', duration: 0.5, ease: 'power2.out' });
+    gsap.to(caseEl, { scale: 1.08, boxShadow: '0 0 25px var(--accent)', duration: 0.6, ease: 'power2.out', backgroundColor: '#1f2328' });
   });
   caseEl.addEventListener('mouseleave', () => {
-    gsap.to(caseEl, { scale: 1, boxShadow: 'var(--shadow-neumorphic)', duration: 0.5, ease: 'power2.out' });
+    gsap.to(caseEl, { scale: 1, boxShadow: 'var(--shadow-neumorphic)', duration: 0.6, ease: 'power2.out', backgroundColor: 'var(--card)' });
   });
 });
