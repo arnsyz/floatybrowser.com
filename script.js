@@ -8,18 +8,18 @@ function showScreen(index) {
   screens.forEach(screen => screen.classList.remove('active'));
   const targetScreen = screens[index - 1];
   targetScreen.classList.add('active');
-  // Enhanced animation with rotation, bounce, and color fade
+  // Animate content with smooth fade and slide
   gsap.fromTo(targetScreen.querySelector('.content > *'), 
-    { opacity: 0, y: 50, scale: 0.85, rotation: -10, stagger: 0.25, color: '#aaa' },
-    { opacity: 1, y: 0, scale: 1, rotation: 0, duration: 1.5, stagger: 0.25, ease: 'bounce.out', color: '#222' }
+    { opacity: 0, y: 30, stagger: 0.1 },
+    { opacity: 1, y: 0, duration: 1, stagger: 0.1, ease: 'power3.out' }
   );
 }
 
 sections.forEach((section, index) => {
   gsap.from(section, {
     opacity: 0,
-    y: 150,
-    duration: 1.8,
+    y: 100,
+    duration: 1.2,
     ease: 'power4.out',
     scrollTrigger: {
       trigger: section,
@@ -38,12 +38,9 @@ sections.forEach((section, index) => {
   });
 });
 
-// Enhanced Parallax for hero with multi-layer effect, scale, rotation, and blur
+// Enhanced Parallax for hero with multi-layer effect
 gsap.to('.hero', {
   backgroundPosition: '50% 100%',
-  scale: 1.15,
-  rotation: 3,
-  filter: 'blur(2px)',
   ease: 'none',
   scrollTrigger: {
     trigger: '.hero',
@@ -53,10 +50,8 @@ gsap.to('.hero', {
   }
 });
 gsap.to('.hero::before', {
-  opacity: 1,
-  scale: 1.4,
-  rotation: -3,
-  filter: 'blur(1px)',
+  opacity: 0.8,
+  scale: 1.2,
   ease: 'none',
   scrollTrigger: {
     trigger: '.hero',
@@ -66,7 +61,7 @@ gsap.to('.hero::before', {
   }
 });
 
-// MacBook enhanced with more realistic animations: rotation, scale, glow, wobble, and shadow shift
+// MacBook rotation, scale, and glow for wow effect (game-like polish)
 const macbook = document.querySelector('.macbook');
 ScrollTrigger.create({
   trigger: '.demo-container',
@@ -75,37 +70,30 @@ ScrollTrigger.create({
   scrub: true,
   onUpdate: (self) => {
     const progress = self.progress;
-    const rotateY = -35 + (70 * progress); // Even wider rotation
-    const scale = 0.8 + (0.4 * Math.sin(progress * Math.PI * 2)); // Intensified pulse
-    const glowIntensity = 0.5 + (0.6 * Math.abs(Math.sin(progress * Math.PI))); // Stronger glow
-    const wobble = 8 * Math.sin(progress * Math.PI * 4); // More pronounced wobble
-    const shadowShift = progress * 20; // Dynamic shadow
-    macbook.style.transform = `perspective(3500px) rotateY(${rotateY}deg) rotateX(${wobble}deg) scale(${scale}) translateY(${progress * 120}px)`;
-    macbook.style.filter = `drop-shadow(${shadowShift}px ${shadowShift}px ${glowIntensity * 50}px var(--accent))`;
+    const rotateY = -20 + (40 * progress); // Wider rotation for dynamic feel
+    const scale = 0.95 + (0.1 * Math.sin(progress * Math.PI * 2)); // Pulsing scale like breathing
+    const glowIntensity = 0.2 + (0.3 * Math.abs(Math.sin(progress * Math.PI))); // Pulsing glow
+    macbook.style.transform = `perspective(2500px) rotateY(${rotateY}deg) scale(${scale})`;
+    macbook.style.filter = `drop-shadow(0 0 ${glowIntensity * 20}px var(--accent))`;
   }
 });
 
-// Enhanced micro-interactions for buttons and nav links with color shift and glow
+// Micro-interactions for buttons and nav links (game-like hover feedback)
 document.querySelectorAll('.button, .navbar nav a').forEach(el => {
   el.addEventListener('mouseenter', () => {
-    gsap.to(el, { scale: 1.2, rotation: 10, duration: 0.7, ease: 'elastic.out(1, 0.5)', boxShadow: '0 0 25px var(--accent)', color: 'var(--accent-dark)', filter: 'brightness(1.2)' });
+    gsap.to(el, { scale: 1.08, duration: 0.4, ease: 'elastic.out(1, 0.5)' });
   });
   el.addEventListener('mouseleave', () => {
-    gsap.to(el, { scale: 1, rotation: 0, duration: 0.7, ease: 'elastic.out(1, 0.5)', boxShadow: 'none', color: 'inherit', filter: 'brightness(1)' });
+    gsap.to(el, { scale: 1, duration: 0.4, ease: 'elastic.out(1, 0.5)' });
   });
 });
 
-// Fade-in for pricing and contact sections with enhanced stagger, rotation, scale, and color transition
-gsap.from('.pricing > *, .contact > *', {
+// Fade-in for pricing and contact sections
+gsap.from('.pricing, .contact', {
   opacity: 0,
-  y: 70,
-  rotation: 20,
-  scale: 0.85,
-  duration: 1.8,
-  stagger: 0.5,
-  ease: 'power3.out',
-  color: '#ccc',
-  onComplete: function() { gsap.to(this.targets(), { color: 'inherit', duration: 0.5 }); },
+  y: 50,
+  duration: 1,
+  stagger: 0.3,
   scrollTrigger: {
     trigger: '.pricing',
     start: 'top 80%',
@@ -113,32 +101,30 @@ gsap.from('.pricing > *, .contact > *', {
   }
 });
 
-// Hero content fade-in with enhanced stagger, bounce, rotation, and shadow
+// Hero content fade-in animation
 gsap.from('.hero-content > *', {
   opacity: 0,
-  y: 100,
-  rotation: 15,
-  duration: 1.8,
-  stagger: 0.4,
-  ease: 'bounce.out',
-  textShadow: '0 0 10px rgba(0,0,0,0)'
+  y: 50,
+  duration: 1,
+  stagger: 0.2,
+  ease: 'power3.out'
 });
 
-// Enhanced particles for hero background with more interactivity and color variation
+// Particles for hero background
 particlesJS('particles-js', {
   "particles": {
     "number": {
-      "value": 150,
+      "value": 80,
       "density": {
         "enable": true,
         "value_area": 800
       }
     },
     "color": {
-      "value": ["#00aaff", "#4dd3ff", "#ffffff"]
+      "value": "#00aaff"
     },
     "shape": {
-      "type": ["circle", "triangle", "star"],
+      "type": "circle",
       "stroke": {
         "width": 0,
         "color": "#000000"
@@ -148,44 +134,44 @@ particlesJS('particles-js', {
       }
     },
     "opacity": {
-      "value": 0.8,
-      "random": true,
+      "value": 0.5,
+      "random": false,
       "anim": {
-        "enable": true,
-        "speed": 3,
-        "opacity_min": 0.3,
+        "enable": false,
+        "speed": 1,
+        "opacity_min": 0.1,
         "sync": false
       }
     },
     "size": {
-      "value": 6,
+      "value": 3,
       "random": true,
       "anim": {
-        "enable": true,
+        "enable": false,
         "speed": 40,
-        "size_min": 0.3,
+        "size_min": 0.1,
         "sync": false
       }
     },
     "line_linked": {
       "enable": true,
-      "distance": 200,
+      "distance": 150,
       "color": "#00aaff",
-      "opacity": 0.7,
-      "width": 2.5
+      "opacity": 0.4,
+      "width": 1
     },
     "move": {
       "enable": true,
-      "speed": 12,
+      "speed": 6,
       "direction": "none",
-      "random": true,
+      "random": false,
       "straight": false,
-      "out_mode": "bounce",
-      "bounce": true,
+      "out_mode": "out",
+      "bounce": false,
       "attract": {
-        "enable": true,
-        "rotateX": 1000,
-        "rotateY": 2000
+        "enable": false,
+        "rotateX": 600,
+        "rotateY": 1200
       }
     }
   },
@@ -194,7 +180,7 @@ particlesJS('particles-js', {
     "events": {
       "onhover": {
         "enable": true,
-        "mode": ["bubble", "grab", "repulse"]
+        "mode": "repulse"
       },
       "onclick": {
         "enable": true,
@@ -204,84 +190,43 @@ particlesJS('particles-js', {
     },
     "modes": {
       "grab": {
-        "distance": 600,
+        "distance": 400,
         "line_linked": {
           "opacity": 1
         }
       },
       "bubble": {
-        "distance": 500,
-        "size": 80,
-        "duration": 4,
-        "opacity": 1,
-        "speed": 5
+        "distance": 400,
+        "size": 40,
+        "duration": 2,
+        "opacity": 8,
+        "speed": 3
       },
       "repulse": {
-        "distance": 300,
-        "duration": 0.6
+        "distance": 200,
+        "duration": 0.4
       },
       "push": {
-        "particles_nb": 10
+        "particles_nb": 4
       },
       "remove": {
-        "particles_nb": 4
+        "particles_nb": 2
       }
     }
   },
   "retina_detect": true
 });
 
-// Animate use cases on scroll with enhanced effects and color fade
+// Animate use cases on scroll
 gsap.from('.use-case', {
   opacity: 0,
-  y: 120,
-  rotation: -25,
-  scale: 0.75,
-  duration: 1.8,
-  stagger: 0.4,
+  y: 100,
+  duration: 1,
+  stagger: 0.2,
   ease: 'power4.out',
-  backgroundColor: '#111',
-  onComplete: function() { gsap.to(this.targets(), { backgroundColor: 'var(--card)', duration: 0.6 }); },
   scrollTrigger: {
     trigger: '.use-cases',
     start: 'top 85%',
     toggleActions: 'play none none reverse'
   }
-});
-
-// Smooth section transitions with color fade and scale
-gsap.utils.toArray('section').forEach(section => {
-  gsap.from(section, {
-    opacity: 0,
-    y: 80,
-    scale: 0.95,
-    duration: 1.5,
-    ease: 'power2.inOut',
-    backgroundColor: 'rgba(0,0,0,0.6)',
-    scrollTrigger: {
-      trigger: section,
-      start: 'top 90%',
-      toggleActions: 'play none none reverse'
-    }
-  });
-});
-
-// Enhanced hover effects for feature sections with color shift, border glow, and shadow lift
-document.querySelectorAll('.feature-section').forEach(section => {
-  section.addEventListener('mouseenter', () => {
-    gsap.to(section, { scale: 1.1, backgroundColor: '#282c32', duration: 1, ease: 'power3.out', border: '3px solid var(--accent)', boxShadow: '0 0 30px var(--accent-fade)' });
-  });
-  section.addEventListener('mouseleave', () => {
-    gsap.to(section, { scale: 1, backgroundColor: 'var(--card)', duration: 1, ease: 'power3.out', border: 'none', boxShadow: 'var(--shadow-neumorphic)' });
-  });
-});
-
-// Hover effects for use cases with lift and glow
-document.querySelectorAll('.use-case').forEach(caseEl => {
-  caseEl.addEventListener('mouseenter', () => {
-    gsap.to(caseEl, { scale: 1.08, boxShadow: '0 0 25px var(--accent)', duration: 0.6, ease: 'power2.out', backgroundColor: '#1f2328' });
-  });
-  caseEl.addEventListener('mouseleave', () => {
-    gsap.to(caseEl, { scale: 1, boxShadow: 'var(--shadow-neumorphic)', duration: 0.6, ease: 'power2.out', backgroundColor: 'var(--card)' });
-  });
 });
