@@ -3,6 +3,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="FloatyBrowser - The lightweight, private browser that floats above everything on macOS. Compatible with Lockdown Browser.">
+  <meta property="og:title" content="FloatyBrowser — Premium macOS Utility">
+  <meta property="og:description" content="The Browser That Floats Above Everything. Lightweight, private, and always on top. Built natively for macOS in Swift.">
+  <meta property="og:image" content="https://arnsyz.github.io/floatybrowser.com/og-image.png"> <!-- Replace with your actual OG image -->
+  <meta property="og:url" content="https://arnsyz.github.io/floatybrowser.com/">
+  <meta name="twitter:card" content="summary_large_image">
   <title>FloatyBrowser — Premium macOS Utility</title>
   <link rel="stylesheet" href="styles.css">
   <link rel="icon" type="image/png" href="favicon.png">
@@ -11,18 +17,21 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 </head>
 <body>
   <header class="navbar">
     <h1>FloatyBrowser</h1>
     <nav>
       <a href="#features">Features</a>
+      <a href="#screenshots">Screenshots</a>
       <a href="#license">License</a>
       <a href="#contact">Contact</a>
     </nav>
   </header>
 
   <section class="hero">
+    <div id="particles-js"></div>
     <div class="hero-content">
       <h2 class="supersized">The Browser That Floats Above Everything</h2>
       <h3>Compatible With Lockdown Browser</h3>
@@ -147,6 +156,17 @@
           </div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <section id="screenshots" class="screenshots">
+    <h2>Screenshots</h2>
+    <div class="gallery">
+      <img src="https://picsum.photos/800/500?random=1" alt="Lightweight Mode Screenshot">
+      <img src="https://picsum.photos/800/500?random=2" alt="Screenshot Tool Screenshot">
+      <img src="https://picsum.photos/800/500?random=3" alt="Custom Keybinds Screenshot">
+      <img src="https://picsum.photos/800/500?random=4" alt="Privacy-First Screenshot">
+      <img src="https://picsum.photos/800/500?random=5" alt="Built in Swift Screenshot">
     </div>
   </section>
 
