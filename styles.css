@@ -4,10 +4,10 @@
   --text: #e0e4eb;
   --accent: #00aaff;
   --accent-dark: #0088cc;
-  --accent-fade: rgba(0, 170, 255, 0.15);
+  --accent-fade: rgba(0, 170, 255, 0.2);
   --gradient-bg: linear-gradient(135deg, var(--bg) 0%, #1a1d21 100%);
-  --radius: 16px;
-  --shadow-neumorphic: 8px 8px 16px rgba(0,0,0,0.4), -8px -8px 16px rgba(255,255,255,0.05);
+  --radius: 20px; /* Softer radius for professional look */
+  --shadow-neumorphic: 10px 10px 20px rgba(0,0,0,0.5), -10px -10px 20px rgba(255,255,255,0.06);
   font-family: "Inter", system-ui, -apple-system, sans-serif;
   color-scheme: dark;
 }
@@ -16,10 +16,10 @@ body {
   background: var(--gradient-bg);
   color: var(--text);
   margin: 0;
-  line-height: 1.6;
+  line-height: 1.7; /* Improved readability */
   overflow-x: hidden;
   scroll-behavior: smooth;
-  transition: background 1.2s ease; /* Smoother background transition */
+  transition: background 1.5s ease;
 }
 
 /* Navbar with enhanced transitions */
@@ -27,56 +27,56 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1rem 3rem;
-  background: rgba(10,12,15,0.8);
-  backdrop-filter: blur(20px);
+  padding: 1.2rem 4rem; /* Slightly more padding */
+  background: rgba(10,12,15,0.85);
+  backdrop-filter: blur(25px);
   position: sticky;
   top: 0;
   z-index: 10;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-  transition: background 0.6s ease, transform 0.6s ease, box-shadow 0.6s ease;
+  box-shadow: 0 5px 12px rgba(0,0,0,0.25);
+  transition: background 0.7s ease, transform 0.7s ease, box-shadow 0.7s ease;
 }
 .navbar:hover {
-  background: rgba(10,12,15,0.95);
-  transform: translateY(-8px);
-  box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+  background: rgba(10,12,15,0.98);
+  transform: translateY(-10px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.35);
 }
 .navbar h1 {
   color: var(--accent);
-  font-size: 1.6rem;
-  letter-spacing: 0.3px;
-  transition: color 0.4s ease, text-shadow 0.4s ease, transform 0.4s ease;
+  font-size: 1.8rem;
+  letter-spacing: 0.4px;
+  transition: color 0.5s ease, text-shadow 0.5s ease, transform 0.5s ease;
 }
 .navbar h1:hover {
-  text-shadow: 0 0 20px var(--accent);
-  transform: scale(1.1);
+  text-shadow: 0 0 25px var(--accent);
+  transform: scale(1.15);
 }
 .navbar nav a {
-  margin-left: 2rem;
+  margin-left: 2.5rem;
   color: var(--text);
   text-decoration: none;
-  transition: color 0.4s, transform 0.4s, text-shadow 0.4s;
+  transition: color 0.5s, transform 0.5s, text-shadow 0.5s;
   cursor: pointer;
 }
 .navbar nav a:hover {
   color: var(--accent);
-  transform: translateY(-3px) scale(1.15);
-  text-shadow: 0 0 15px var(--accent);
+  transform: translateY(-4px) scale(1.2);
+  text-shadow: 0 0 20px var(--accent);
 }
 
-/* Hero with enhanced transitions */
+/* Hero with enhanced transitions and professional polish */
 .hero {
   text-align: center;
-  padding: 8rem 2rem 6rem;
+  padding: 9rem 2.5rem 7rem;
   background: linear-gradient(180deg, var(--accent-fade) 0%, transparent 100%), var(--gradient-bg);
   position: relative;
   overflow: hidden;
-  transition: background 1.2s ease, transform 1.2s ease, box-shadow 1.2s ease;
+  transition: background 1.5s ease, transform 1.5s ease, box-shadow 1.5s ease;
 }
 .hero:hover {
-  background: linear-gradient(180deg, rgba(0,170,255,0.3) 0%, transparent 100%), var(--gradient-bg);
-  transform: scale(1.03);
-  box-shadow: 0 0 30px var(--accent-fade);
+  background: linear-gradient(180deg, rgba(0,170,255,0.35) 0%, transparent 100%), var(--gradient-bg);
+  transform: scale(1.04);
+  box-shadow: 0 0 40px var(--accent-fade);
 }
 .hero::before {
   content: '';
@@ -85,14 +85,14 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: radial-gradient(circle, rgba(0,170,255,0.15) 0%, transparent 70%);
-  opacity: 0.5;
-  transition: opacity 0.6s ease, transform 0.6s ease, background 0.6s ease;
+  background: radial-gradient(circle, rgba(0,170,255,0.2) 0%, transparent 70%);
+  opacity: 0.6;
+  transition: opacity 0.7s ease, transform 0.7s ease, background 0.7s ease;
 }
 .hero:hover::before {
-  opacity: 0.9;
-  transform: scale(1.15) rotate(5deg);
-  background: radial-gradient(circle, rgba(0,170,255,0.2) 0%, transparent 70%);
+  opacity: 1;
+  transform: scale(1.2) rotate(8deg);
+  background: radial-gradient(circle, rgba(0,170,255,0.25) 0%, transparent 70%);
 }
 #particles-js {
   position: absolute;
@@ -101,114 +101,116 @@ body {
   top: 0;
   left: 0;
   z-index: 0;
-  transition: opacity 0.6s ease, filter 0.6s ease;
+  transition: opacity 0.7s ease, filter 0.7s ease;
 }
 .hero:hover #particles-js {
-  opacity: 0.8;
-  filter: brightness(1.2);
+  opacity: 0.9;
+  filter: brightness(1.3);
 }
 .hero-content {
   position: relative;
   z-index: 1;
-  transition: transform 0.6s ease, opacity 0.6s ease;
+  max-width: 800px;
+  margin: 0 auto;
+  transition: transform 0.7s ease, opacity 0.7s ease;
 }
 .hero-content:hover {
-  transform: translateY(-15px) scale(1.05);
+  transform: translateY(-20px) scale(1.08);
   opacity: 1;
 }
 .supersized {
-  font-size: 4rem;
+  font-size: 4.5rem; /* Larger for impact */
   font-weight: 900;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.6rem;
   background: linear-gradient(135deg, var(--accent), #4dd3ff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  transition: background-position 0.6s ease, text-shadow 0.6s ease, font-size 0.6s ease;
+  transition: background-position 0.7s ease, text-shadow 0.7s ease, font-size 0.7s ease;
 }
 .supersized:hover {
-  text-shadow: 0 0 25px var(--accent);
-  font-size: 4.2rem;
+  text-shadow: 0 0 30px var(--accent);
+  font-size: 4.7rem;
 }
 .hero h3 {
-  font-size: 2rem;
+  font-size: 2.2rem;
   font-weight: 600;
-  margin-bottom: 1rem;
-  opacity: 0.9;
-  transition: opacity 0.4s ease, color 0.4s ease, transform 0.4s ease;
+  margin-bottom: 1.2rem;
+  opacity: 0.95;
+  transition: opacity 0.5s ease, color 0.5s ease, transform 0.5s ease;
 }
 .hero h3:hover {
   opacity: 1;
   color: var(--accent-dark);
-  transform: scale(1.1);
+  transform: scale(1.15);
 }
 .hero p {
-  font-size: 1.3rem;
-  opacity: 0.85;
-  margin-bottom: 2rem;
-  transition: opacity 0.4s ease, transform 0.4s ease, color 0.4s ease;
+  font-size: 1.4rem;
+  opacity: 0.9;
+  margin-bottom: 2.5rem;
+  transition: opacity 0.5s ease, transform 0.5s ease, color 0.5s ease;
 }
 .hero p:hover {
   opacity: 1;
-  transform: scale(1.08);
+  transform: scale(1.1);
   color: var(--text);
 }
 .button {
   display: inline-block;
   background: var(--accent);
   color: #fff;
-  padding: 1rem 2rem;
+  padding: 1.2rem 2.5rem;
   border-radius: var(--radius);
   text-decoration: none;
   font-weight: 700;
-  transition: background 0.4s, box-shadow 0.4s, transform 0.4s, filter 0.4s;
+  transition: background 0.5s, box-shadow 0.5s, transform 0.5s, filter 0.5s;
   box-shadow: var(--shadow-neumorphic);
   cursor: pointer;
 }
 .button:hover {
   background: var(--accent-dark);
-  box-shadow: 4px 4px 8px rgba(0,0,0,0.5), -4px -4px 8px rgba(255,255,255,0.1);
-  transform: translateY(-5px) rotate(3deg) scale(1.15);
-  filter: brightness(1.2) drop-shadow(0 0 15px var(--accent));
+  box-shadow: 5px 5px 10px rgba(0,0,0,0.6), -5px -5px 10px rgba(255,255,255,0.12);
+  transform: translateY(-6px) rotate(4deg) scale(1.2);
+  filter: brightness(1.3) drop-shadow(0 0 20px var(--accent));
 }
 
-/* Features with enhanced transitions */
+/* Features with enhanced transitions and professional layout */
 .features {
-  padding: 5rem 3rem;
+  padding: 6rem 4rem;
   text-align: center;
-  transition: padding 0.6s ease, background 0.6s ease, transform 0.6s ease;
+  transition: padding 0.7s ease, background 0.7s ease, transform 0.7s ease;
 }
 .features:hover {
-  background: rgba(255,255,255,0.03);
-  transform: translateY(-10px);
+  background: rgba(255,255,255,0.04);
+  transform: translateY(-12px);
 }
 .features h2 {
   color: var(--accent);
-  margin-bottom: 5rem;
-  font-size: 3.2rem;
+  margin-bottom: 6rem;
+  font-size: 3.5rem;
   font-weight: 800;
-  transition: transform 0.6s ease, text-shadow 0.6s ease;
+  transition: transform 0.7s ease, text-shadow 0.7s ease;
 }
 .features h2:hover {
-  transform: scale(1.08);
-  text-shadow: 0 0 20px var(--accent);
+  transform: scale(1.1);
+  text-shadow: 0 0 25px var(--accent);
 }
 .demo-container {
   display: flex;
-  gap: 5rem;
+  gap: 6rem;
   align-items: flex-start;
-  max-width: 1600px;
+  max-width: 1800px; /* Wider for better layout */
   margin: 0 auto;
-  transition: transform 0.6s ease, opacity 0.6s ease;
+  transition: transform 0.7s ease, opacity 0.7s ease;
 }
 .demo-container:hover {
-  transform: translateY(-8px);
-  opacity: 0.95;
+  transform: translateY(-10px);
+  opacity: 0.98;
 }
 .feature-descriptions {
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 20vh;
+  gap: 25vh;
 }
 .feature-section {
   min-height: 80vh;
@@ -216,37 +218,37 @@ body {
   flex-direction: column;
   justify-content: center;
   text-align: left;
-  padding: 3rem;
+  padding: 3.5rem;
   background: var(--card);
   border-radius: var(--radius);
   box-shadow: var(--shadow-neumorphic);
-  transition: transform 0.6s ease, box-shadow 0.6s ease, background 0.6s ease, border 0.6s ease;
+  transition: transform 0.7s ease, box-shadow 0.7s ease, background 0.7s ease, border 0.7s ease;
 }
 .feature-section:hover {
-  transform: translateY(-15px) rotate(2deg) scale(1.05);
-  box-shadow: 15px 15px 30px rgba(0,0,0,0.5), -15px -15px 30px rgba(255,255,255,0.05);
-  background: #1f2328;
-  border: 2px solid var(--accent);
+  transform: translateY(-20px) rotate(3deg) scale(1.06);
+  box-shadow: 20px 20px 40px rgba(0,0,0,0.6), -20px -20px 40px rgba(255,255,255,0.07);
+  background: #202428;
+  border: 3px solid var(--accent);
 }
 .feature-section h3 {
   color: var(--accent);
-  font-size: 2.5rem;
-  margin-bottom: 1.5rem;
-  transition: color 0.4s ease, transform 0.4s ease;
+  font-size: 2.8rem;
+  margin-bottom: 1.8rem;
+  transition: color 0.5s ease, transform 0.5s ease;
 }
 .feature-section h3:hover {
   color: #4dd3ff;
-  transform: scale(1.08);
+  transform: scale(1.1);
 }
 .feature-section p {
-  font-size: 1.4rem;
-  opacity: 0.9;
-  transition: opacity 0.4s ease, color 0.4s ease, transform 0.4s ease;
+  font-size: 1.5rem;
+  opacity: 0.95;
+  transition: opacity 0.5s ease, color 0.5s ease, transform 0.5s ease;
 }
 .feature-section p:hover {
   opacity: 1;
   color: var(--text);
-  transform: translateX(5px);
+  transform: translateX(8px);
 }
 .macbook-sticky {
   flex: 1;
@@ -257,65 +259,84 @@ body {
   align-items: center;
   justify-content: center;
   z-index: 5;
-  transition: top 0.6s ease, transform 0.6s ease;
+  transition: top 0.7s ease, transform 0.7s ease;
 }
 .macbook-sticky:hover {
-  transform: scale(1.05) rotate(2deg);
+  transform: scale(1.06) rotate(3deg);
 }
 .macbook {
-  width: 800px;
-  height: 480px;
+  width: 900px; /* Larger for realism */
+  height: 540px;
   position: relative;
   transform-style: preserve-3d;
-  transition: transform 0.6s ease, filter 0.6s ease;
+  transition: transform 0.7s ease, filter 0.7s ease;
 }
-.macbook-screen {
-  width: 100%;
-  height: 100%;
+.macbook-top {
+  border: 14px solid #222;
+  border-bottom: none;
+  border-radius: 30px 30px 0 0;
   background: #111;
-  border: 25px solid #222;
-  border-bottom-width: 70px;
-  border-radius: 25px 25px 0 0;
+  height: 85%;
   position: relative;
   overflow: hidden;
-  box-shadow: 0 30px 60px rgba(0,0,0,0.7);
-  transition: box-shadow 0.6s ease, transform 0.6s ease;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+  transition: box-shadow 0.7s ease, transform 0.7s ease;
 }
-.macbook-screen:hover {
-  box-shadow: 0 30px 60px rgba(0,170,255,0.4);
-  transform: rotateX(8deg) scale(1.02);
+.macbook-top:hover {
+  box-shadow: 0 20px 40px rgba(0,170,255,0.4);
+  transform: rotateX(10deg) scale(1.03);
 }
-.macbook-screen::before {
-  content: '';
+.macbook-screen {
+  height: 100%;
+  background: #fff;
+  position: relative;
+}
+.macbook-notch {
   position: absolute;
-  top: -15px;
+  top: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: 25px;
-  height: 5px;
-  background: #444;
-  border-radius: 50%;
-  transition: background 0.4s ease, transform 0.4s ease;
+  width: 120px;
+  height: 20px;
+  background: #111;
+  border-radius: 0 0 20px 20px;
+  z-index: 10;
 }
-.macbook-screen:hover::before {
-  background: var(--accent-dark);
-  transform: translateX(-50%) scale(1.2);
+.screen-content {
+  height: 100%;
+  overflow: hidden;
 }
-.macbook::after {
-  content: '';
-  position: absolute;
-  bottom: -90px;
-  left: 4%;
-  width: 92%;
-  height: 60px;
+.macbook-base {
   background: linear-gradient(180deg, #ddd 0%, #bbb 100%);
+  height: 15%;
   border-radius: 0 0 50px 50px;
-  box-shadow: 0 15px 30px rgba(0,0,0,0.5);
-  transition: background 0.6s ease, transform 0.6s ease;
+  position: relative;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+  transition: background 0.7s ease, transform 0.7s ease;
 }
-.macbook:hover::after {
+.macbook-base:hover {
   background: linear-gradient(180deg, #eee 0%, #ccc 100%);
-  transform: scale(1.08);
+  transform: scale(1.1);
+}
+.macbook-keyboard {
+  position: absolute;
+  top: 20%;
+  left: 10%;
+  width: 80%;
+  height: 40%;
+  background: repeating-linear-gradient(0deg, #999, #999 2px, #aaa 2px, #aaa 4px);
+  border-radius: 5px;
+}
+.macbook-trackpad {
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30%;
+  height: 30%;
+  background: #ccc;
+  border-radius: 10px;
+  box-shadow: inset 0 0 5px rgba(0,0,0,0.3);
 }
 .screen {
   position: absolute;
@@ -324,11 +345,11 @@ body {
   width: 100%;
   height: 100%;
   opacity: 0;
-  transition: opacity 1.5s ease-in-out, transform 1.5s ease-in-out;
+  transition: opacity 1.8s ease-in-out, transform 1.8s ease-in-out;
 }
 .screen.active {
   opacity: 1;
-  transform: scale(1.05) translateY(-10px);
+  transform: scale(1.06) translateY(-12px);
 }
 .browser-window {
   width: 100%;
@@ -337,20 +358,20 @@ body {
   flex-direction: column;
   background: #fafafa;
   color: #222;
-  transition: background 0.4s ease, box-shadow 0.4s ease;
+  transition: background 0.5s ease, box-shadow 0.5s ease;
 }
 .browser-window:hover {
   background: #fff;
-  box-shadow: inset 0 0 15px rgba(0,170,255,0.3);
+  box-shadow: inset 0 0 20px rgba(0,170,255,0.4);
 }
 .title-bar {
-  height: 35px;
+  height: 40px;
   background: #eee;
   display: flex;
   align-items: center;
-  padding: 0 10px;
+  padding: 0 12px;
   border-bottom: 1px solid #ddd;
-  transition: background 0.4s ease;
+  transition: background 0.5s ease;
 }
 .title-bar:hover {
   background: #f5f5f5;
@@ -359,15 +380,15 @@ body {
   display: flex;
 }
 .buttons span {
-  width: 14px;
-  height: 14px;
+  width: 16px;
+  height: 16px;
   border-radius: 50%;
-  margin-right: 8px;
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  margin-right: 10px;
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
 }
 .buttons span:hover {
-  transform: scale(1.3);
-  box-shadow: 0 0 8px rgba(0,0,0,0.4);
+  transform: scale(1.4);
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
 .close { background: #ff5f57; }
 .minimize { background: #ffbd2e; }
@@ -375,113 +396,113 @@ body {
 .title {
   flex: 1;
   text-align: center;
-  font-size: 1rem;
+  font-size: 1.1rem;
   color: #444;
-  transition: color 0.4s ease, font-weight 0.4s ease, transform 0.4s ease;
+  transition: color 0.5s ease, font-weight 0.5s ease, transform 0.5s ease;
 }
 .title:hover {
   color: #000;
   font-weight: bold;
-  transform: scale(1.05);
+  transform: scale(1.1);
 }
 .content {
   flex: 1;
-  padding: 2.5rem;
+  padding: 3rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  transition: padding 0.4s ease, background 0.4s ease;
+  transition: padding 0.5s ease, background 0.5s ease;
 }
 .content:hover {
-  background: rgba(0,170,255,0.08);
-  padding: 2.8rem;
+  background: rgba(0,170,255,0.1);
+  padding: 3.2rem;
 }
 .content h3 {
-  font-size: 2rem;
-  margin-bottom: 1.5rem;
-  transition: font-size 0.4s ease, color 0.4s ease;
+  font-size: 2.2rem;
+  margin-bottom: 1.8rem;
+  transition: font-size 0.5s ease, color 0.5s ease;
 }
 .content h3:hover {
-  font-size: 2.2rem;
+  font-size: 2.3rem;
   color: var(--accent-dark);
 }
 .content p {
-  font-size: 1.3rem;
-  margin-bottom: 2.5rem;
-  transition: transform 0.4s ease, opacity 0.4s ease;
+  font-size: 1.4rem;
+  margin-bottom: 3rem;
+  transition: transform 0.5s ease, opacity 0.5s ease;
 }
 .content p:hover {
-  transform: translateY(-5px);
-  opacity: 0.95;
+  transform: translateY(-6px);
+  opacity: 0.9;
 }
 .demo-visual {
-  font-size: 1.2rem;
-  padding: 1.2rem;
+  font-size: 1.3rem;
+  padding: 1.4rem;
   background: #e0f2fd;
-  border-radius: 10px;
+  border-radius: 12px;
   color: #007aff;
   font-weight: bold;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  transition: box-shadow 0.4s ease, transform 0.4s ease, background 0.4s ease;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+  transition: box-shadow 0.5s ease, transform 0.5s ease, background 0.5s ease;
 }
 .demo-visual:hover {
-  box-shadow: 0 6px 12px rgba(0,0,0,0.3);
-  transform: translateY(-4px) scale(1.08);
-  background: #c0e0fa;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.4);
+  transform: translateY(-6px) scale(1.1);
+  background: #b0d8f8;
 }
 
-/* Use Cases section */
+/* Use Cases section with professional enhancements */
 .use-cases {
-  padding: 5rem 3rem;
+  padding: 6rem 4rem;
   text-align: center;
-  transition: background 0.6s ease;
+  transition: background 0.7s ease;
 }
 .use-cases:hover {
-  background: rgba(255,255,255,0.03);
+  background: rgba(255,255,255,0.04);
 }
 .use-cases h2 {
   color: var(--accent);
-  margin-bottom: 3rem;
-  font-size: 3.2rem;
+  margin-bottom: 4rem;
+  font-size: 3.5rem;
   font-weight: 800;
-  transition: transform 0.6s ease;
+  transition: transform 0.7s ease;
 }
 .use-cases h2:hover {
-  transform: scale(1.08);
+  transform: scale(1.1);
 }
 .use-case-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-  max-width: 1600px;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2.5rem;
+  max-width: 1800px;
   margin: 0 auto;
 }
 .use-case {
-  padding: 2rem;
+  padding: 2.5rem;
   background: var(--card);
   border-radius: var(--radius);
   box-shadow: var(--shadow-neumorphic);
-  transition: transform 0.5s ease, box-shadow 0.5s ease;
+  transition: transform 0.6s ease, box-shadow 0.6s ease;
 }
 .use-case:hover {
-  transform: translateY(-10px) scale(1.05);
-  box-shadow: 12px 12px 24px rgba(0,0,0,0.5), -12px -12px 24px rgba(255,255,255,0.05);
+  transform: translateY(-12px) scale(1.06);
+  box-shadow: 15px 15px 30px rgba(0,0,0,0.6), -15px -15px 30px rgba(255,255,255,0.07);
 }
 .use-case h3 {
   color: var(--accent);
-  font-size: 1.8rem;
-  margin-bottom: 1rem;
-  transition: color 0.3s ease;
+  font-size: 2rem;
+  margin-bottom: 1.2rem;
+  transition: color 0.4s ease;
 }
 .use-case h3:hover {
   color: #4dd3ff;
 }
 .use-case p {
-  font-size: 1.2rem;
-  opacity: 0.9;
-  transition: opacity 0.3s ease;
+  font-size: 1.3rem;
+  opacity: 0.95;
+  transition: opacity 0.4s ease;
 }
 .use-case p:hover {
   opacity: 1;
@@ -489,30 +510,30 @@ body {
 
 /* Pricing with enhanced transitions */
 .pricing {
-  background: linear-gradient(180deg, rgba(255,255,255,0.05) 0%, transparent 100%);
+  background: linear-gradient(180deg, rgba(255,255,255,0.06) 0%, transparent 100%);
   text-align: center;
-  padding: 5rem 3rem;
-  transition: background 0.6s ease, transform 0.6s ease;
+  padding: 6rem 4rem;
+  transition: background 0.7s ease, transform 0.7s ease;
 }
 .pricing:hover {
-  background: linear-gradient(180deg, rgba(255,255,255,0.12) 0%, transparent 100%);
-  transform: translateY(-15px);
+  background: linear-gradient(180deg, rgba(255,255,255,0.15) 0%, transparent 100%);
+  transform: translateY(-18px);
 }
 .price {
-  font-size: 2.2rem;
+  font-size: 2.5rem;
   font-weight: 800;
   color: var(--accent);
-  transition: color 0.4s ease, transform 0.4s ease;
+  transition: color 0.5s ease, transform 0.5s ease;
 }
 .price:hover {
   color: #4dd3ff;
-  transform: scale(1.15);
+  transform: scale(1.2);
 }
 .note {
-  opacity: 0.8;
-  margin-top: 0.7rem;
-  font-size: 1.2rem;
-  transition: opacity 0.4s ease, color 0.4s ease;
+  opacity: 0.85;
+  margin-top: 0.8rem;
+  font-size: 1.3rem;
+  transition: opacity 0.5s ease, color 0.5s ease;
 }
 .note:hover {
   opacity: 1;
@@ -521,12 +542,12 @@ body {
 
 /* Contact with enhanced transitions */
 .contact {
-  padding: 4rem 3rem;
+  padding: 5rem 4rem;
   text-align: center;
-  transition: padding 0.6s ease, background 0.6s ease;
+  transition: padding 0.7s ease, background 0.7s ease;
 }
 .contact:hover {
-  background: rgba(255,255,255,0.03);
+  background: rgba(255,255,255,0.04);
 }
 .contact ul {
   list-style: none;
@@ -535,40 +556,40 @@ body {
 .contact a {
   color: var(--accent);
   text-decoration: none;
-  transition: color 0.4s, transform 0.4s, text-shadow 0.4s;
+  transition: color 0.5s, transform 0.5s, text-shadow 0.5s;
   cursor: pointer;
 }
 .contact a:hover {
   color: #4dd3ff;
-  transform: scale(1.15) translateX(8px);
-  text-shadow: 0 0 15px #4dd3ff;
+  transform: scale(1.2) translateX(10px);
+  text-shadow: 0 0 20px #4dd3ff;
 }
 
 /* Footer with enhanced hover */
 footer {
-  margin-top: 4rem;
+  margin-top: 5rem;
   text-align: center;
-  opacity: 0.7;
-  padding-bottom: 2rem;
-  font-size: 1rem;
-  transition: opacity 0.4s ease, transform 0.4s ease;
+  opacity: 0.75;
+  padding-bottom: 3rem;
+  font-size: 1.1rem;
+  transition: opacity 0.5s ease, transform 0.5s ease;
 }
 footer:hover {
   opacity: 1;
-  transform: translateY(-8px);
+  transform: translateY(-10px);
 }
 
 /* Media Queries for Responsiveness */
 @media (max-width: 1200px) {
   .demo-container {
     flex-direction: column;
-    gap: 3rem;
+    gap: 4rem;
   }
   .macbook-sticky {
     position: relative;
     top: auto;
     height: auto;
-    margin-bottom: 5rem;
+    margin-bottom: 6rem;
   }
   .macbook {
     width: 100%;
@@ -577,12 +598,12 @@ footer:hover {
   }
   .feature-section {
     min-height: auto;
-    padding: 2.5rem 2rem;
+    padding: 3rem 2.5rem;
   }
   .features {
-    padding: 4rem 2rem;
+    padding: 5rem 3rem;
   }
   .supersized {
-    font-size: 3rem;
+    font-size: 3.5rem;
   }
 }
