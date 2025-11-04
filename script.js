@@ -8,10 +8,10 @@ function showScreen(index) {
   screens.forEach(screen => screen.classList.remove('active'));
   const targetScreen = screens[index - 1];
   targetScreen.classList.add('active');
-  // Animate content with smooth fade and slide
+  // Animate content inside the screen for a game-like transition
   gsap.fromTo(targetScreen.querySelector('.content > *'), 
-    { opacity: 0, y: 30, stagger: 0.1 },
-    { opacity: 1, y: 0, duration: 1, stagger: 0.1, ease: 'power3.out' }
+    { opacity: 0, y: 20, stagger: 0.1 },
+    { opacity: 1, y: 0, duration: 0.8, stagger: 0.1, ease: 'power3.out' }
   );
 }
 
